@@ -32,7 +32,7 @@ If the issue of escape characters in the lit expression proves problematic, use 
 Passing the view model to the be-alit enhancement can be done via:
 
 ```JavaScript
-oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"]
+oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
 ```
 
 *be-alit* can also tap into the power of other similar be-enhanced binding custom enhancements:
