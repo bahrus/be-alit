@@ -34,6 +34,7 @@
     "be-hive": "0.0.138",
     "be-observant": "0.0.176",
     "be-value-added": "0.0.23",
+    "lit-html": "3.1.2",
     "trans-render": "0.0.742",
     "xtal-element": "0.0.598"
   },
