@@ -9,6 +9,7 @@ export interface EndUserProps extends IBE{
     With?: Array<WithStatement>,
     scriptRef?: Target,
     eval?: string,
+    vm?: any,
 }
 
 export interface AllProps extends EndUserProps{
@@ -16,6 +17,7 @@ export interface AllProps extends EndUserProps{
     attrExpr?: string | null,
     isParsed?: boolean,
     scriptEl?: HTMLScriptElement;
+    renderer?: (vm: any, enhancedElement: Element) => any;
 }
 
 export type WithStatement = string;
@@ -31,5 +33,7 @@ export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
 export interface Actions{
     getAttrExpr(self: this): PAP;
     onAttrExpr(self: this): PAP;
+    importSymbols(self: this): ProPAP;
+    doRender(self: this): void;
 }
 

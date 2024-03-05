@@ -26,6 +26,23 @@ export class BeAlit extends BE {
             scriptEl
         };
     }
+    async importSymbols(self) {
+        const { scriptEl } = self;
+        import('be-exportable/be-exportable.js');
+        if (!scriptEl.src) {
+            const { rewrite } = await import('./rewrite.js');
+            rewrite(self, scriptEl);
+        }
+        const exportable = await scriptEl.beEnhanced.whenResolved('be-exportable');
+        return {
+            renderer: exportable.exports['renderer'],
+            resolved: true,
+        };
+    }
+    doRender(self) {
+        const { renderer, vm, enhancedElement } = self;
+        renderer(vm, enhancedElement);
+    }
 }
 export const tagName = 'be-alit';
 const xe = new XE({
@@ -43,6 +60,9 @@ const xe = new XE({
             getAttrExpr: {
                 ifAllOf: ['isParsed', 'eval']
             },
+            doRender: {
+                ifAllOf: ['renderer', 'vm']
+            }
         }
     }
 });
