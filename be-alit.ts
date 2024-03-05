@@ -81,9 +81,14 @@ const xe = new XE<AP, Actions>({
             getAttrExpr:{
                 ifAllOf: ['isParsed', 'eval']
             },
+            onAttrExpr: 'attrExpr',
+            importSymbols: {
+                ifAllOf: ['scriptEl']
+            },
             doRender: {
                 ifAllOf: ['renderer', 'vm']
             }
         }
-    }
+    },
+    superclass: BeAlit
 })

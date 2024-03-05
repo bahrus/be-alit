@@ -60,9 +60,14 @@ const xe = new XE({
             getAttrExpr: {
                 ifAllOf: ['isParsed', 'eval']
             },
+            onAttrExpr: 'attrExpr',
+            importSymbols: {
+                ifAllOf: ['scriptEl']
+            },
             doRender: {
                 ifAllOf: ['renderer', 'vm']
             }
         }
-    }
+    },
+    superclass: BeAlit
 });
