@@ -49,7 +49,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"]
                 html`${vm.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
-                        <td>${prescription.PhysicianOrNursePractioner}</td>
+                        <td>${prescription.PhysicianOrNursePractitioner}</td>
                         <td>${prescription.Dosage}</td>
                         <td>${prescription.Freq}</td>
                     </tr>
@@ -75,3 +75,5 @@ In the examples below, we will encounter other, additional special symbols used 
 | -prop-name  |Marker indicates prop         | Pulls in from prop specified by attribute marker (camel case).  [TODO]               |
 | %propName   |Part attribute                | Pulls prop from adorned element with that part name. [TODO]                          |
 | ~my-el:prop |Prop from peer custom element | Pulls in model from (brian-like, non visible) peer custom element.  [TODO]           |
+
+
