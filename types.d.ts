@@ -2,14 +2,20 @@ import { ActionOnEventConfigs } from "trans-render/froop/types";
 import {IBE} from 'be-enhanced/types';
 import {ElTypes, SignalRefType} from 'be-linked/types';
 import {ObserveRule} from 'be-observant/types';
+import {Target, Scope, ProxyPropChangeInfo} from 'trans-render/lib/types';
 
 export interface EndUserProps extends IBE{
-    with?: Array<WithStatement>;
-    With?: Array<WithStatement>
+    with?: Array<WithStatement>,
+    With?: Array<WithStatement>,
+    scriptRef?: Target,
+    eval?: string,
 }
 
 export interface AllProps extends EndUserProps{
-
+    //args?: string[],
+    attrExpr?: string | null,
+    isParsed?: boolean,
+    scriptEl?: HTMLScriptElement;
 }
 
 export type WithStatement = string;
@@ -23,5 +29,7 @@ export type ProPAP = Promise<PAP>;
 export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
 
 export interface Actions{
+    getAttrExpr(self: this): PAP;
+    onAttrExpr(self: this): PAP;
 }
 
