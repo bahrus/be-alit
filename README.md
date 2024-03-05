@@ -1,6 +1,7 @@
-# be-alit
+# be-alit [TODO]
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
+
 
 ```html
 <ul be-alit='{
@@ -59,3 +60,18 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"]
         </table>
 </patient-chart>
 ```
+
+"/" is a special character used to signify that we are referring to the host(ish).
+
+In the examples below, we will encounter other, additional special symbols used in order to keep the statements small:
+
+
+| Symbol      | Meaning              | Notes                                                                                        |
+|-------------|----------------------|----------------------------------------------------------------------------------------------|
+| /propName   |"Hostish"                     | Pulls in values from the specified property of the host. [TODO]                      |
+| @propName   |Name attribute                | Pull in value from form element with matching name, listens for input events. [TODO] | 
+| |propName   |Itemprop attribute            | If contenteditible, listens for input events.  Otherwise, uses be-value-added.[TODO] |
+| #propName   |Id attribute                  | Match by id.    [TODO]                                                               |
+| -prop-name  |Marker indicates prop         | Pulls in from prop specified by attribute marker (camel case).  [TODO]               |
+| %propName   |Part attribute                | Pulls prop from adorned element with that part name. [TODO]                          |
+| ~my-el:prop |Prop from peer custom element | Pulls in model from (brian-like, non visible) peer custom element.  [TODO]           |
