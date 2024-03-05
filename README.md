@@ -1,5 +1,7 @@
 # be-alit [TODO]
 
+Use the power of lit-html from HTML Markup.
+
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 
@@ -45,7 +47,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"]
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody be-alit='with / prescriptions' onload="
+            <tbody be-alit='with / prescriptions.' onload="
                 html`${vm.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
