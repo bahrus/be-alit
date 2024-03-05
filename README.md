@@ -7,7 +7,7 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 ```html
 <ul be-alit='{
-    "with": ["He", "She", "They", "Other"],
+    "vm": ["He", "She", "They", "Other"],
     "eval": "onload",
 }'  onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
 </ul>
@@ -24,7 +24,7 @@ If the issue of escape characters in the lit expression proves problematic, use 
     html`${vm.map(i => html`<li>${i}</li>`)}`
 </script>
 <ul be-alit='{
-    "with": ["He", "She", "They", "Other"],
+    "vm": ["He", "She", "They", "Other"],
 }'>
 </ul>
 ```
@@ -48,7 +48,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
                 <th>Frequency</th>
             </thead>
             <tbody be-alit='with / prescriptions.' onload="
-                html`${vm.map(prescription => html`
+                html`${vm.prescriptions.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
                         <td>${prescription.PhysicianOrNursePractitioner}</td>
