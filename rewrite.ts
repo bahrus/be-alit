@@ -3,11 +3,11 @@ import {AP} from './types';
 export function rewrite({enhancedElement}: AP, scriptEl: HTMLScriptElement){
     const inner = scriptEl.innerHTML.trim();
     scriptEl.innerHTML = `
-import {html, render} from 'lit-html';
+import {html, render} from 'lit-html/lit-html.js';
 
 const templ = vm => ${inner};
 
-export const renderer = vm => {
+export const renderer = (vm, enhancedElement) => {
     render(templ, enhancedElement);
 };
     `;
