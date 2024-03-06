@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <ul be-alit='{
+    <ul id=ul be-alit='{
         "vm": ["He", "She", "They", "Other"],
         "eval": "onload"
     }'  onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
@@ -27,6 +27,11 @@
     </script>
     <script type=module>
         import '../behivior.js'
+    </script>
+    <script>
+        setTimeout(() => {
+            ul.beEnhanced.beAlit.vm = ["I", "You", "Us", "Them"]
+        }, 2000);
     </script>
 </body>
 </html>
