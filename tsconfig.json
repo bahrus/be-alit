@@ -9,7 +9,8 @@
 		"strict": true,
 	},
 	"files":[
-		"behivior.ts"
+		"behivior.ts",
+		"demo/PatientChart.ts"
 	],
 	"exclude":[
 		"node_modules"

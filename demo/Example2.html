@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <patient-chart>
+        <template shadowrootmode=open>
+            <input name=prescriptions type=url value="./prescriptions.json">
+            <table>
+                <thead>
+                    <th>Prescription</th>
+                    <th>Prescriber</th>
+                    <th>Dosage</th>
+                    <th>Frequency</th>
+                </thead>
+                <link>
+                <tbody be-alit='with  prescriptions.' onload="
+                    html`${vm.prescriptions.map(prescription => html`
+                        <tr>
+                            <td>${prescription.OrderText}</td>
+                            <td>${prescription.Prescriber}</td>
+                            <td>${prescription.Dosage}</td>
+                            <td>${prescription.Freq}</td>
+                        </tr>
+                    `)}
+                    `
+                ">
+                </tbody>
+            </table>
+            <be-hive></be-hive>
+            <xtal-element prop-info='{
+                "prescriptions": {
+                    "type": "Object"
+                }
+            }'></xtal-element>
+        </template>
+    </patient-chart>
+    <script type=importmap>
+        {
+            "imports": {
+                "be-enhanced/": "../node_modules/be-enhanced/",
+                "be-exportable/": "../node_modules/be-exportable/",
+                "be-hive/":  "../node_modules/be-hive/",
+                "be-linked/": "../node_modules/be-linked/",
+                "lit-html/": "../node_modules/lit-html/",
+                "mount-observer/": "../node_modules/mount-observer/",
+                "trans-render/": "../node_modules/trans-render/",
+                "xtal-element/": "../node_modules/xtal-element/"
+            }
+        }
+    </script>
+    <script type=module>
+        import '../behivior.js';
+        import 'xtal-element/xtal-element.js';
+    </script>
+</body>
+</html>

@@ -43,6 +43,10 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
 ```html
 <patient-chart>
     #shadow
+        <medical-prescriptions 
+            href="prescriptions.json" 
+            be-kvetching>
+        </medical-prescriptions>
         <table>
             <thead>
                 <th>Prescription</th>
@@ -50,7 +54,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody be-alit='with / prescriptions.' onload="
+            <tbody be-alit='with ~ medicalPrescriptions.' onload="
                 html`${vm.prescriptions.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
@@ -63,6 +67,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
             ">
             </tbody>
         </table>
+        <be-hive></be-hive>
 </patient-chart>
 ```
 
