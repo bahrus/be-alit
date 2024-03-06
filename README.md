@@ -1,9 +1,10 @@
-# be-alit [TODO]
+# be-alit [WIP]
 
 Use the power of lit-html from HTML Markup.
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
+## Example 1
 
 ```html
 <ul be-alit='{
@@ -34,6 +35,8 @@ Passing the view model to the be-alit enhancement can be done via:
 ```JavaScript
 oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
 ```
+
+## Example 2
 
 *be-alit* can also tap into the power of other similar be-enhanced binding custom enhancements:
 
