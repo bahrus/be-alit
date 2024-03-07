@@ -15,7 +15,7 @@
                 "k-fetch/": "../node_modules/k-fetch/",
                 "lit-html/": "../node_modules/lit-html/",
                 "mount-observer/": "../node_modules/mount-observer/",
-                "trans-render/": "../node_modules/trans-render/",
+                "trans-render/": "../trans-render/",
                 "xtal-element/": "../node_modules/xtal-element/"
             }
         }
@@ -37,7 +37,7 @@
                 </thead>
                 <link>
                 <tbody be-alit='with ~ medicalPrescriptions.' onload="
-                    html`${vm.prescriptions.map(prescription => html`
+                    html`${vm.map(prescription => html`
                         <tr>
                             <td>${prescription.OrderText}</td>
                             <td>${prescription.Prescriber}</td>

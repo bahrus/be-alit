@@ -18,6 +18,9 @@ export class BeAlit extends BE<AP, Actions> implements Actions{
         return {
             parse: true,
             parseAndCamelize: true,
+            camelizeOptions:{
+
+            },
             isParsedProp: 'isParsed'
         } as BEConfig;
     }
@@ -129,6 +132,9 @@ const xe = new XE<AP, Actions>({
             onWithStatements: {
                 ifAllOf: ['isParsed'],
                 ifAtLeastOneOf: ['With', 'with'],
+            },
+            observe: {
+                ifAllOf: ['locators'],
             }
         }
     },

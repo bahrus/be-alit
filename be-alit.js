@@ -5,6 +5,7 @@ export class BeAlit extends BE {
         return {
             parse: true,
             parseAndCamelize: true,
+            camelizeOptions: {},
             isParsedProp: 'isParsed'
         };
     }
@@ -39,6 +40,41 @@ export class BeAlit extends BE {
             resolved: true,
         };
     }
+    async onWithStatements(self) {
+        const { prsWith } = await import('./prsWith.js');
+        return prsWith(self);
+    }
+    async observe(self) {
+        const { locators, enhancedElement } = self;
+        const { findRealm } = await import('trans-render/lib/findRealm.js');
+        let vm;
+        for (const locator of locators) {
+            const { name, type } = locator;
+            let inputEl;
+            switch (type) {
+                case '~': {
+                    const { camelToLisp } = await import('trans-render/lib/camelToLisp.js');
+                    const localName = camelToLisp(name);
+                    inputEl = await findRealm(enhancedElement, ['wis', localName, true]);
+                    break;
+                }
+                default: {
+                    throw 'NI';
+                }
+            }
+            const val = inputEl.value;
+            inputEl.addEventListener('change', e => {
+                const newVal = e.target.value;
+                this.vm = newVal;
+            });
+            if (Array.isArray(val)) {
+                vm = val;
+            }
+        }
+        return {
+            vm
+        };
+    }
     doRender(self) {
         const { renderer, vm, enhancedElement } = self;
         renderer(vm, enhancedElement);
@@ -66,6 +102,13 @@ const xe = new XE({
             },
             doRender: {
                 ifAllOf: ['renderer', 'vm']
+            },
+            onWithStatements: {
+                ifAllOf: ['isParsed'],
+                ifAtLeastOneOf: ['With', 'with'],
+            },
+            observe: {
+                ifAllOf: ['locators'],
             }
         }
     },
