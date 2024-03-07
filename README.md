@@ -1,4 +1,4 @@
-# be-alit [WIP]
+# be-alit
 
 Use the power of lit-html from HTML Markup.
 
@@ -38,7 +38,9 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
 
 ## Example 2
 
-*be-alit* can also tap into the power of other similar be-enhanced binding custom enhancements:
+*be-alit* can also tap into the power of other similar be-enhanced binding custom enhancements.
+
+For a somewhat "raw" example:
 
 ```html
 <patient-chart>
@@ -86,4 +88,71 @@ In the examples below, we will encounter other, additional special symbols used 
 | %propName   |Part attribute                | Pulls prop from adorned element with that part name. [TODO]                          |
 | ~my-el:prop |Prop from peer custom element | Pulls in model from (brian-like, non visible) peer custom element.  [TODO]           |
 
+For a slightly more "polished syntax (with more depedencies)" [TODO]
 
+
+```html
+<patient-chart>
+    #shadow
+        <medical-prescriptions 
+            href="prescriptions.json" 
+            enh-be-fetching>
+        </medical-prescriptions>
+        <table>
+            <thead>
+                <th>Prescription</th>
+                <th>Prescriber</th>
+                <th>Dosage</th>
+                <th>Frequency</th>
+            </thead>
+            <tbody be-alit='with ~ medicalPrescriptions.' onload="
+                html`${vm.map(prescription => html`
+                    <tr>
+                        <td>${prescription.OrderText}</td>
+                        <td>${prescription.Prescriber}</td>
+                        <td>${prescription.Dosage}</td>
+                        <td>${prescription.Freq}</td>
+                    </tr>
+                `)}
+                `
+            ">
+            </tbody>
+        </table>
+        <be-hive></be-hive>
+</patient-chart>
+```
+
+To bind to the patient-chart web component host: [TODO]
+
+```html
+<patient-chart>
+    #shadow
+        <medical-prescriptions 
+            href="prescriptions.json"
+            name=prescriptions
+            enh-be-elevating 
+            enh-be-fetching>
+        </medical-prescriptions>
+        <table>
+            <thead>
+                <th>Prescription</th>
+                <th>Prescriber</th>
+                <th>Dosage</th>
+                <th>Frequency</th>
+            </thead>
+            <tbody be-alit='with / prescriptions.' onload="
+                html`${vm.map(prescription => html`
+                    <tr>
+                        <td>${prescription.OrderText}</td>
+                        <td>${prescription.Prescriber}</td>
+                        <td>${prescription.Dosage}</td>
+                        <td>${prescription.Freq}</td>
+                    </tr>
+                `)}
+                `
+            ">
+            </tbody>
+        </table>
+        <be-hive></be-hive>
+</patient-chart>
+```
