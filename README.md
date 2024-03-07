@@ -45,7 +45,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
     #shadow
         <medical-prescriptions 
             href="prescriptions.json" 
-            be-kvetching>
+            enh-be-kvetching>
         </medical-prescriptions>
         <table>
             <thead>
@@ -55,7 +55,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
                 <th>Frequency</th>
             </thead>
             <tbody be-alit='with ~ medicalPrescriptions.' onload="
-                html`${vm.prescriptions.map(prescription => html`
+                html`${vm.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
                         <td>${prescription.Prescriber}</td>
