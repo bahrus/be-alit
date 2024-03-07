@@ -130,7 +130,7 @@ To bind to the patient-chart web component host: [TODO]
         <medical-prescriptions 
             href="prescriptions.json"
             name=prescriptions
-            enh-be-elevating 
+            enh-be-elevating='on change' 
             enh-be-fetching>
         </medical-prescriptions>
         <table>
