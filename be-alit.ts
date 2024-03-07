@@ -12,6 +12,7 @@ import { getSignalVal } from 'be-linked/getSignalVal.js';
 import { SignalRefType } from 'be-linked/types';
 import { AllProps as BeExportableAllProps } from 'be-exportable/types';
 
+
 export class BeAlit extends BE<AP, Actions> implements Actions{
     static override get beConfig(){
         return {
@@ -56,6 +57,43 @@ export class BeAlit extends BE<AP, Actions> implements Actions{
         }
     }
 
+    async onWithStatements(self: this): ProPAP {
+        const {prsWith} = await import('./prsWith.js');
+        return prsWith(self);
+    }
+
+    async observe(self: this): ProPAP {
+        const {locators, enhancedElement} = self;
+        const {findRealm} = await import('trans-render/lib/findRealm.js');
+        let vm: any;
+        for(const locator of locators!){
+            const {name, type} = locator;
+            let inputEl: HTMLInputElement;
+            switch(type){
+                case '~':{
+                    const {camelToLisp} = await import('trans-render/lib/camelToLisp.js');
+                    const localName = camelToLisp(name!);
+                    inputEl = await findRealm(enhancedElement, ['wis', localName, true]) as HTMLInputElement;
+                    break;
+                }
+                default:{
+                    throw 'NI';
+                }
+            }
+            const val = inputEl.value as any;
+            inputEl.addEventListener('change', e => {
+                const newVal = (e.target as HTMLInputElement).value;
+                this.vm = newVal;
+            })
+            if(Array.isArray(val)){
+                vm = val;
+            }
+        }
+        return {
+            vm
+        }
+    }
+
     doRender(self: this) {
         const {renderer, vm, enhancedElement} = self;
         renderer!(vm, enhancedElement); 
@@ -87,6 +125,10 @@ const xe = new XE<AP, Actions>({
             },
             doRender: {
                 ifAllOf: ['renderer', 'vm']
+            },
+            onWithStatements: {
+                ifAllOf: ['isParsed'],
+                ifAtLeastOneOf: ['With', 'with'],
             }
         }
     },

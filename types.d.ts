@@ -16,8 +16,9 @@ export interface AllProps extends EndUserProps{
     //args?: string[],
     attrExpr?: string | null,
     isParsed?: boolean,
-    scriptEl?: HTMLScriptElement;
-    renderer?: (vm: any, enhancedElement: Element) => any;
+    scriptEl?: HTMLScriptElement,
+    renderer?: (vm: any, enhancedElement: Element) => any,
+    locators?: Array<VMLocator>,
 }
 
 export type WithStatement = string;
@@ -35,5 +36,12 @@ export interface Actions{
     onAttrExpr(self: this): PAP;
     importSymbols(self: this): ProPAP;
     doRender(self: this): void;
+    onWithStatements(self: this): ProPAP;
+    observe(self: this): ProPAP;
+}
+
+export interface VMLocator{
+    type?: ElTypes,
+    name?: string,
 }
 

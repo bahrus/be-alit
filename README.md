@@ -58,7 +58,7 @@ oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
                 html`${vm.prescriptions.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
-                        <td>${prescription.PhysicianOrNursePractitioner}</td>
+                        <td>${prescription.Prescriber}</td>
                         <td>${prescription.Dosage}</td>
                         <td>${prescription.Freq}</td>
                     </tr>
