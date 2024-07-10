@@ -1,4 +1,4 @@
-# be-alit
+# be-alit (🔥)
 
 Use the power of lit-html from HTML Markup.
 
