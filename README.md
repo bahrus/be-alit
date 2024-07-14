@@ -59,6 +59,11 @@ Since most, if not all, the frameworks in vogue would have trouble passing value
 For a somewhat "raw" example:
 
 ```html
+<script id=my-fns nomodule>
+    export orderItem  = (vm, e) => {
+        console.log({vm, e});
+    }
+</script>
 <patient-chart>
     #shadow
         <medical-prescriptions 
@@ -74,9 +79,12 @@ For a somewhat "raw" example:
             </thead>
             <tbody 🎇='with ~medicalPrescriptions' onload="
                 html`${vm.map(prescription => html`
-                    <tr itemscope>
-                        <td><my-item-manager></my-item-manager>${prescription.OrderText}</td>
-                        <td><button 🕹️=~myItemManager:orderItem>Order Item</button>${prescription.Prescriber}</td>
+                    <tr itemscope=💰 .💰=${prescription} 💰-fns=my-fns>
+                        <td>${prescription.OrderText}</td>
+                        <td>
+                            <button disabled 🕹️=orderItem>Order Item</button>
+                            <div>${prescription.Prescriber}</div>
+                        </td>
                         <td>${prescription.Dosage}</td>
                         <td>${prescription.Freq}</td>
                     </tr>
