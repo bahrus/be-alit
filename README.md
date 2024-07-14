@@ -1,4 +1,4 @@
-# be-alit (🔥) [WIP]
+# be-alit (🎇) [WIP]
 
 Use the power of lit-html from HTML Markup.
 
@@ -32,14 +32,14 @@ If the issue of escape characters in the lit expression proves problematic, use 
 </ul>
 ```
 
-An alternative name (🔥) is supported, that makes it a bit less tedious and less errorprone to separate out the attributes so it is more semantic:
+An alternative name to be-alit is suppoted:  🎇.  This makes it a bit less tedious when we take advantage of the ability to break down the JSON expression into individual attributes: 
 
 ## Example 1c
 
 ```html
 <ul 
-    🔥-vm='["He", "She", "They", "Other"]' 
-    🔥-eval=onload  
+    🎇-vm='["He", "She", "They", "Other"]' 
+    🎇-eval=onload  
     onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
 </ul>
 ```
@@ -47,12 +47,12 @@ An alternative name (🔥) is supported, that makes it a bit less tedious and le
 Passing the view model to the be-alit enhancement can be done via:
 
 ```JavaScript
-oUL.beEnhanced.by.beAlit.vm = ["I", "You", "Us", "Them"];
+oUL.beEnhanced.by.🎇.vm = ["I", "You", "Us", "Them"];
 ```
 
 ## Example 2
 
-*be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
+Since most, if not all, the frameworks in vogue would have trouble passing values to the view model in this way,  *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
 For a somewhat "raw" example:
 
@@ -70,7 +70,7 @@ For a somewhat "raw" example:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🔥='with ~medicalPrescriptions' onload="
+            <tbody 🎇='with ~medicalPrescriptions' onload="
                 html`${vm.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
@@ -88,7 +88,7 @@ For a somewhat "raw" example:
 ```
 
 
-For a slightly more "polished syntax (with more depedencies)" [TODO]
+For a slightly more "polished syntax (with more dependencies)" [TODO]
 
 
 ```html
@@ -105,7 +105,7 @@ For a slightly more "polished syntax (with more depedencies)" [TODO]
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody be-alit='with ~ medicalPrescriptions.' onload="
+            <tbody 🎇='with ~ medicalPrescriptions.' onload="
                 html`${vm.map(prescription => html`
                     <tr>
                         <td>${prescription.OrderText}</td>
