@@ -38,8 +38,13 @@
                 <link>
                 <tbody be-alit='with ~ medicalPrescriptions.' onload="
                     html`${vm.map(prescription => html`
-                        <tr>
-                            <td>${prescription.OrderText}</td>
+                        <tr itemscope>
+                            <td>
+                                <my-item-manager></my-item-manager>
+                                <button
+                                🕹️=~myItemManager:orderItem
+                                >Order Item</button>
+                                ${prescription.OrderText}</td>
                             <td>${prescription.Prescriber}</td>
                             <td>${prescription.Dosage}</td>
                             <td>${prescription.Freq}</td>

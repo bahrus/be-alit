@@ -4,7 +4,7 @@ Use the power of lit-html from HTML Markup.
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
-## Example 1a
+## Example 1a Using the canonical name
 
 ```html
 <ul be-alit='{
@@ -17,6 +17,8 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content.
 
 The eval specifier is optional (and is assumed to be the onload attribute if not specified).
+
+Editing JSON by hand is a bit error prone.  A [VS plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) can help with this.
 
 If the issue of escape characters in the lit expression proves problematic, use a previous script tag:
 
@@ -32,7 +34,7 @@ If the issue of escape characters in the lit expression proves problematic, use 
 </ul>
 ```
 
-An alternative name to be-alit is suppoted:  🎇.  This makes it a bit less tedious when we take advantage of the ability to break down the JSON expression into individual attributes: 
+An alternative name to be-alit is supported:  🎇.  This makes it a bit less tedious when we take advantage of the ability to break down the JSON expression into individual attributes: 
 
 ## Example 1c
 
@@ -50,7 +52,7 @@ Passing the view model to the be-alit enhancement can be done via:
 oUL.beEnhanced.by.🎇.vm = ["I", "You", "Us", "Them"];
 ```
 
-## Example 2
+## Example 2a
 
 Since most, if not all, the frameworks in vogue would have trouble passing values to the view model in this way,  *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
@@ -72,9 +74,9 @@ For a somewhat "raw" example:
             </thead>
             <tbody 🎇='with ~medicalPrescriptions' onload="
                 html`${vm.map(prescription => html`
-                    <tr>
-                        <td>${prescription.OrderText}</td>
-                        <td>${prescription.Prescriber}</td>
+                    <tr itemscope>
+                        <td><my-item-manager></my-item-manager>${prescription.OrderText}</td>
+                        <td><button 🕹️=~myItemManager:orderItem>Order Item</button>${prescription.Prescriber}</td>
                         <td>${prescription.Dosage}</td>
                         <td>${prescription.Freq}</td>
                     </tr>
