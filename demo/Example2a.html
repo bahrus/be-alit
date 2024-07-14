@@ -22,9 +22,13 @@
     </script>
 </head>
 <body>
-    <script be-></script>
     <patient-chart>
-        <template shadowrootmode=open>
+        #shadow
+            <script blow-dry id=my-fns nomodule>
+                export const orderItem  = (vm, e) => {
+                    console.log({vm, e});
+                }
+            </script>
             <medical-prescriptions 
                 href="prescriptions.json" 
                 enh-be-kvetching>
@@ -36,17 +40,14 @@
                     <th>Dosage</th>
                     <th>Frequency</th>
                 </thead>
-                <link>
-                <tbody be-alit='with ~ medicalPrescriptions.' onload="
+                <tbody 🎇='with ~medicalPrescriptions' onload="
                     html`${vm.map(prescription => html`
-                        <tr itemscope>
+                        <tr itemscope=💰 .💰=${prescription} 💰-🕹️=#my-fns>
+                            <td>${prescription.OrderText}</td>
                             <td>
-                                <my-item-manager></my-item-manager>
-                                <button
-                                🕹️=~myItemManager:orderItem
-                                >Order Item</button>
-                                ${prescription.OrderText}</td>
-                            <td>${prescription.Prescriber}</td>
+                                <button disabled 🕹️=orderItem>Order Item</button>
+                                <div>${prescription.Prescriber}</div>
+                            </td>
                             <td>${prescription.Dosage}</td>
                             <td>${prescription.Freq}</td>
                         </tr>
@@ -56,9 +57,8 @@
                 </tbody>
             </table>
             <be-hive></be-hive>
-        </template>
     </patient-chart>
-
+    
     <script type=module>
         import '../behivior.js';
         import 'be-kvetching/behivior.js';

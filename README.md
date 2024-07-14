@@ -60,7 +60,7 @@ For a somewhat "raw" example:
 
 ```html
 <script id=my-fns nomodule>
-    export orderItem  = (vm, e) => {
+    export const orderItem  = (vm, e) => {
         console.log({vm, e});
     }
 </script>
