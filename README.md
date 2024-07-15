@@ -59,13 +59,10 @@ Since most, if not all, the frameworks in vogue would have trouble passing value
 For a somewhat "raw" example:
 
 ```html
-<script id=my-fns nomodule>
-    export const orderItem  = (vm, e) => {
-        console.log({vm, e});
-    }
-</script>
+
 <patient-chart>
     #shadow
+
         <medical-prescriptions 
             href="prescriptions.json" 
             enh-be-kvetching>
@@ -77,9 +74,14 @@ For a somewhat "raw" example:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
+            <script blow-dry id=my-fns nomodule>
+                export const orderItem  = (vm, e) => {
+                    console.log({vm, e});
+                }
+            </script>
             <tbody 🎇='with ~medicalPrescriptions' onload="
                 html`${vm.map(prescription => html`
-                    <tr itemscope=💰 .💰=${prescription} 💰-fns=my-fns>
+                    <tr itemscope=💰 .💰=${prescription} 💰-📜=my-fns>
                         <td>${prescription.OrderText}</td>
                         <td>
                             <button disabled 🕹️=orderItem>Order Item</button>
