@@ -31,7 +31,7 @@ export class BeAlit extends BE {
         const { scriptEl } = self;
         import('be-exportable/be-exportable.js');
         if (!scriptEl.src) {
-            const { rewrite } = await import('./rewrite.js');
+            const { rewrite } = await import('../rewrite.js');
             rewrite(self, scriptEl);
         }
         const exportable = await scriptEl.beEnhanced.whenResolved('be-exportable');

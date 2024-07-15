@@ -1,8 +1,11 @@
-import {register} from 'be-hive/register.js';
-import {tagName } from './be-alit.js';
-import './be-alit.js';
+import {BeHive, EMC, seed} from 'be-hive/be-hive.js';
+import {MountObserver, MOSE} from 'mount-observer/MountObserver.js';
+import {AP} from './types';
 
-const ifWantsToBe = 'lit';
-const upgrade = '*';
-
-register(ifWantsToBe, upgrade, tagName);
+export const emc: EMC<any, AP> = {
+    enhPropKey: 'beAlit',
+    importEnh: async () => {
+        const {BeAlit} = await import('./be-alit.js');
+        return BeAlit
+    }
+};
