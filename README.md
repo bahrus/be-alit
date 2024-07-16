@@ -4,7 +4,7 @@ Use the power of lit-html from HTML Markup.
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
-## Example 1a Using the canonical name [TODO]
+## Example 1a Using the canonical name
 
 ```html
 <ul be-alit='{

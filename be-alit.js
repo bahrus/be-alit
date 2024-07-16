@@ -17,6 +17,7 @@ class BeAlit extends BE {
             when_eval_changes_invoke_getAttrExpr: 0,
             when_attrExpr_changes_invoke_onAttrExpr: 0,
             when_scriptEl_changes_invoke_importSymbols: 0,
+            when_scriptRef_changes_invoke_onScriptRef: 0,
         },
         actions: {
             doRender: {
@@ -29,7 +30,8 @@ class BeAlit extends BE {
     };
     getAttrExpr(self) {
         const { enhancedElement, eval: e } = self;
-        const attrExpr = enhancedElement.getAttribute(e);
+        const eAttr = enhancedElement.getAttribute(e);
+        const attrExpr = eAttr === null ? undefined : eAttr;
         const scriptRef = attrExpr ? undefined : '^{(*)}';
         return {
             attrExpr,
@@ -62,6 +64,11 @@ class BeAlit extends BE {
     doRender(self) {
         const { renderer, vm, enhancedElement } = self;
         renderer(vm, enhancedElement);
+    }
+    async onScriptRef(self) {
+        const { enhancedElement, scriptRef } = self;
+        throw 'NI';
+        return {};
     }
 }
 await BeAlit.bootUp();

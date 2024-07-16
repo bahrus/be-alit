@@ -21,4 +21,5 @@ export interface Actions {
     onAttrExpr(self: this): PAP;
     importSymbols(self: this): ProPAP;
     doRender(self: this): void;
+    onScriptRef(self: this): ProPAP;
 }
