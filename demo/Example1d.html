@@ -6,10 +6,10 @@
     <title>Example 1c</title>
 </head>
 <body>
-    <ul id=ul 🎇='{
-        "vm": ["He", "She", "They", "Other"],
-        "eval": "onload"
-    }'  onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
+    <ul id=ul
+        🎇-vm='["He", "She", "They", "Other"]'
+        🎇-eval=onload
+        onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
     </ul>
     <script type=importmap>
         {
