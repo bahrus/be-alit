@@ -4,7 +4,7 @@ Use the power of lit-html from HTML Markup.
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
-## Example 1a Using the canonical name
+## Example 1a Using the canonical name [TODO]
 
 ```html
 <ul be-alit='{
@@ -22,7 +22,7 @@ Editing JSON by hand is a bit error prone.  A [VS plugin](https://marketplace.vi
 
 If the issue of escape characters in the lit expression proves problematic, use a previous script tag:
 
-## Example 1b
+## Example 1b [TODO]
 
 ```html
 <script nomodule>
@@ -36,7 +36,7 @@ If the issue of escape characters in the lit expression proves problematic, use 
 
 An alternative name to be-alit is supported:  🎇.  This makes it a bit less tedious when we take advantage of the ability to break down the JSON expression into individual attributes: 
 
-## Example 1c
+## Example 1c [TODO]
 
 ```html
 <ul 

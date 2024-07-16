@@ -14,6 +14,8 @@ class BeAlit extends BE<AP, Actions> implements Actions{
             vm: {},
             attrExpr: {},
             scriptRef: {},
+            scriptEl: {},
+            renderer: {},
         },
         compacts:{
             when_eval_changes_invoke_getAttrExpr: 0,
