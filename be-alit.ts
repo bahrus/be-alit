@@ -77,9 +77,14 @@ class BeAlit extends BE<AP, Actions> implements Actions{
 
     async onScriptRef(self: this){
         const {enhancedElement, scriptRef} = self;
-        throw 'NI';
+        const {parse} = await import('trans-render/dss/parse.js');
+        const specifier = await parse(scriptRef!);
+        console.log({specifier});
+        const {find} = await import('trans-render/dss/find.js');
+        const scriptEl = await find(enhancedElement, specifier);
+        console.log({scriptEl});
         return {
-
+            scriptEl,
         } as PAP
     }
 }
