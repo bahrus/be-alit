@@ -18,9 +18,12 @@ class BeAlit extends BE<AP, Actions> implements Actions{
         compacts:{
             when_eval_changes_invoke_getAttrExpr: 0,
             when_attrExpr_changes_invoke_onAttrExpr: 0,
+            when_scriptEl_changes_invoke_importSymbols: 0,
         },
         actions: {
-            
+            doRender: {
+                ifAllOf: ['renderer', 'vm']
+            },
         },
         positractions:[
             ...beCnfg.positractions!
@@ -55,12 +58,17 @@ class BeAlit extends BE<AP, Actions> implements Actions{
             const {rewrite} = await import('./rewrite.js');
             rewrite(self, scriptEl!);
         }
-        const {} = await 
-        const exportable = await (<any>scriptEl).beEnhanced.whenResolved('be-exportable') as BeExportableAllProps;
+        const {emc} = await import('be-exportable/behivior.js');
+        const exportable = await (<any>scriptEl).beEnhanced.whenResolved(emc);
         return {
             renderer: exportable.exports['renderer'],
             resolved: true,
         }
+    }
+
+    doRender(self: this) {
+        const {renderer, vm, enhancedElement} = self;
+        renderer!(vm, enhancedElement); 
     }
 }
 
