@@ -22,7 +22,7 @@ Editing JSON by hand is a bit error prone.  A [VS plugin](https://marketplace.vi
 
 If the issue of escape characters in the lit expression proves problematic, use a previous script tag:
 
-## Example 1b [TODO]
+## Example 1b
 
 ```html
 <script nomodule>
