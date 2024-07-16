@@ -35,6 +35,7 @@ class BeAlit extends BE<AP, Actions> implements Actions{
 
     getAttrExpr(self: this): PAP {
         const {enhancedElement, eval: e} = self;
+        console.log('getattrexpr', e);
         const eAttr = enhancedElement.getAttribute(e!)
         const attrExpr = eAttr === null ? undefined : eAttr;
         const scriptRef = attrExpr  ? undefined : '^{(*)}';
@@ -79,10 +80,8 @@ class BeAlit extends BE<AP, Actions> implements Actions{
         const {enhancedElement, scriptRef} = self;
         const {parse} = await import('trans-render/dss/parse.js');
         const specifier = await parse(scriptRef!);
-        console.log({specifier});
         const {find} = await import('trans-render/dss/find.js');
         const scriptEl = await find(enhancedElement, specifier);
-        console.log({scriptEl});
         return {
             scriptEl,
         } as PAP
