@@ -36,7 +36,7 @@ If the issue of escape characters in the lit expression proves problematic, use 
 
 An alternative name to be-alit is supported:  🎇.  This makes it a bit less tedious when we take advantage of the ability to break down the JSON expression into individual attributes: 
 
-## Example 1c [TODO]
+## Example 1c
 
 ```html
 <ul 
@@ -52,7 +52,7 @@ Passing the view model to the be-alit enhancement can be done via:
 oUL.beEnhanced.by.🎇.vm = ["I", "You", "Us", "Them"];
 ```
 
-## Example 2a
+## Example 2a [TODO]
 
 Since most, if not all, the frameworks in vogue would have trouble passing values to the view model in this way,  *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
