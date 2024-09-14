@@ -77,6 +77,20 @@ For a somewhat "raw" example:
             href="prescriptions.json?patient=zero" 
             enh-be-kvetching>
         </medical-prescriptions>
+        <script blow-dry=remove type=module>
+            import {within} from '🎇.js';
+            within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
+                <tr itemscope=treatment-order>
+                    <td>${prescription.OrderText}</td>
+                    <td>
+                        <button disabled 🕹️=orderItem>Order Item</button>
+                        <div>${prescription.Prescriber}</div>
+                    </td>
+                    <td>${prescription.Dosage}</td>
+                    <td>${prescription.Freq}</td>
+                </tr>
+            `)}`);
+        </script>
         <table id=UUicp3Dh0kqKHlnAAbtw4Q>
             <thead>
                 <th>Prescription</th>
@@ -84,20 +98,6 @@ For a somewhat "raw" example:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <script blow-dry=remove type=module>
-                import {within} from '🎇.js';
-                within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
-                    <tr itemscope=treatment-order>
-                        <td>${prescription.OrderText}</td>
-                        <td>
-                            <button disabled 🕹️=orderItem>Order Item</button>
-                            <div>${prescription.Prescriber}</div>
-                        </td>
-                        <td>${prescription.Dosage}</td>
-                        <td>${prescription.Freq}</td>
-                    </tr>
-                `)}`);
-            </script>
             <tbody 🎇-with='orders from ~medicalPrescriptions'>
             </tbody>
         </table>
