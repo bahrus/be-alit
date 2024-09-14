@@ -70,7 +70,6 @@ As mentioned above, most, it is seeming beyond any frameworks's ability in to pa
 For a somewhat "raw" example:
 
 ```html
-
 <patient-chart>
     <template shadowrootmode=open>
         <medical-prescriptions 
@@ -109,69 +108,76 @@ For a somewhat "raw" example:
 
 For a slightly more "polished syntax (with more dependencies)" [TODO]
 
+## Example 2b
 
 ```html
 <patient-chart>
-    #shadow
+    <template shadowrootmode=open>
         <medical-prescriptions 
-            href="prescriptions.json" 
+            href="prescriptions.json?patient=zero" 
             enh-be-fetching>
         </medical-prescriptions>
-        <table>
+        <script blow-dry=remove type=module>
+            import {within} from 'be-alit/🎇.js';
+            within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
+                <tr itemscope=treatment-order>
+                    <td>${prescription.OrderText}</td>
+                    <td>
+                        <button disabled 🕹️=orderItem>Order Item</button>
+                        <div>${prescription.Prescriber}</div>
+                    </td>
+                    <td>${prescription.Dosage}</td>
+                    <td>${prescription.Freq}</td>
+                </tr>
+            `)}`);
+        </script>
+        <table id=UUicp3Dh0kqKHlnAAbtw4Q>
             <thead>
                 <th>Prescription</th>
                 <th>Prescriber</th>
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇='with ~ medicalPrescriptions.' onload="
-                html`${vm.map(prescription => html`
-                    <tr>
-                        <td>${prescription.OrderText}</td>
-                        <td>${prescription.Prescriber}</td>
-                        <td>${prescription.Dosage}</td>
-                        <td>${prescription.Freq}</td>
-                    </tr>
-                `)}
-                `
-            ">
+            <tbody 🎇-with='orders from ~medicalPrescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
+    </template>
 </patient-chart>
 ```
 
-To bind to the patient-chart web component host: [TODO]
+To bind to the patient-chart web component host:
+
+## Example 2c
 
 ```html
 <patient-chart>
-    #shadow
-        <medical-prescriptions 
-            href="prescriptions.json"
-            name=prescriptions
-            enh-be-elevating='on change' 
-            enh-be-fetching>
-        </medical-prescriptions>
-        <table>
+    <template shadowrootmode=open>
+        <script blow-dry=remove type=module>
+            import {within} from 'be-alit/🎇.js';
+            within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
+                <tr itemscope=treatment-order>
+                    <td>${prescription.OrderText}</td>
+                    <td>
+                        <button disabled 🕹️=orderItem>Order Item</button>
+                        <div>${prescription.Prescriber}</div>
+                    </td>
+                    <td>${prescription.Dosage}</td>
+                    <td>${prescription.Freq}</td>
+                </tr>
+            `)}`);
+        </script>
+        <table id=UUicp3Dh0kqKHlnAAbtw4Q>
             <thead>
                 <th>Prescription</th>
                 <th>Prescriber</th>
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody be-alit='with / prescriptions.' onload="
-                html`${vm.map(prescription => html`
-                    <tr>
-                        <td>${prescription.OrderText}</td>
-                        <td>${prescription.Prescriber}</td>
-                        <td>${prescription.Dosage}</td>
-                        <td>${prescription.Freq}</td>
-                    </tr>
-                `)}
-                `
-            ">
+            <tbody 🎇-with='orders from /prescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
+    </template>
 </patient-chart>
 ```
