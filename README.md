@@ -50,7 +50,7 @@ In some cases, we might want to define a local html generator (that gets reused 
 ```html
 <script blow-dry=remove type=module>
     import {within} from 'be-alit/🎇.js';
-    within('gvyZqWwRFEe+ADiKsAsSZQ', 'listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
+    within('#gvyZqWwRFEe+ADiKsAsSZQ', 'listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
 </script>
 <div id=gvyZqWwRFEe+ADiKsAsSZQ>
     <ul 🎇-vm='["He", "She", "They", "Other"]' 🎇-with=listerine></ul>
@@ -59,52 +59,35 @@ In some cases, we might want to define a local html generator (that gets reused 
 
 The "blow-dry=remove" attribute is there if working with declarative elements based on xtal-element, so that the script element doesn't get repeated with each instance.
 
-## Example 1c
+If Shadow DOM doesn't wrap each instance, it is probably better to use an attribute other than the id to insert the guid, since id's are supposed to be unique within a Shadow DOM realm.
 
-```html
-<ul 
-    🎇-vm='["He", "She", "They", "Other"]' 
-    🎇-eval=onload  
-    onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
-</ul>
-```
-
-Passing the view model to the be-alit enhancement can be done via:
-
-```JavaScript
-oUL.beEnhanced.by.🎇.vm = ["I", "You", "Us", "Them"];
-```
+# Part II Pulling in the View Model
 
 ## Example 2a [TODO]
 
-Since most, if not all, the frameworks in vogue would have trouble passing values to the view model in this way,  *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
+As mentioned above, most, it is seeming beyond any frameworks's ability in to pass values to the view model in the proscribed  way.  *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
 For a somewhat "raw" example:
 
 ```html
 
 <patient-chart>
-    #shadow
-
+    <template shadowrootmode=open>
         <medical-prescriptions 
-            href="prescriptions.json" 
+            href="prescriptions.json?patient=zero" 
             enh-be-kvetching>
         </medical-prescriptions>
-        <table>
+        <table id=UUicp3Dh0kqKHlnAAbtw4Q>
             <thead>
                 <th>Prescription</th>
                 <th>Prescriber</th>
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <script blow-dry id=my-fns nomodule>
-                export const orderItem  = (vm, e) => {
-                    console.log({vm, e});
-                }
-            </script>
-            <tbody 🎇='with ~medicalPrescriptions' onload="
-                html`${vm.map(prescription => html`
-                    <tr itemscope=💰 .💰=${prescription} 💰-📜=my-fns>
+            <script blow-dry=remove type=module>
+                import {within} from '🎇.js';
+                within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
+                    <tr itemscope=treatment-order>
                         <td>${prescription.OrderText}</td>
                         <td>
                             <button disabled 🕹️=orderItem>Order Item</button>
@@ -113,9 +96,9 @@ For a somewhat "raw" example:
                         <td>${prescription.Dosage}</td>
                         <td>${prescription.Freq}</td>
                     </tr>
-                `)}
-                `
-            ">
+                `)}`);
+            </script>
+            <tbody 🎇-with='orders from ~medicalPrescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
