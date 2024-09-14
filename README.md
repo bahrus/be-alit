@@ -1,4 +1,4 @@
-# be-alit (🎇) [WIP]
+# be-alit (🎇) [TODO]
 
 Use the power of lit-html from HTML Markup.
 
