@@ -45,7 +45,7 @@ It's a bit cumbersome to type be-alit repeatedly like we needed to do above.  Th
 
 ## Example 1c - locally scoped literator
 
-In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment.)  For that we need to define an id that is unique to the application, such as a GUID:
+In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment.)  For that we need to define an id (or some other attribute or class or part) that is unique to the application, such as a GUID:
 
 ```html
 <script blow-dry=remove type=module>
@@ -57,7 +57,7 @@ In some cases, we might want to define a local html generator (that gets reused 
 </div>
 ```
 
-The "blow-dry=remove" attribute is there if working with declarative elements based on xtal-element, so that the script element doesn't get repeated with each instance.
+The "blow-dry=remove" attribute is there if working with declarative custom elements based on xtal-element, so that the script element doesn't get repeated with each instance.
 
 If Shadow DOM doesn't wrap each instance, it is probably better to use an attribute other than the id to insert the guid, since id's are supposed to be unique within a Shadow DOM realm.
 
