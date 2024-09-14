@@ -78,7 +78,7 @@ For a somewhat "raw" example:
             enh-be-kvetching>
         </medical-prescriptions>
         <script blow-dry=remove type=module>
-            import {within} from '🎇.js';
+            import {within} from 'be-alit/🎇.js';
             within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
                 <tr itemscope=treatment-order>
                     <td>${prescription.OrderText}</td>
@@ -102,6 +102,7 @@ For a somewhat "raw" example:
             </tbody>
         </table>
         <be-hive></be-hive>
+    </template>
 </patient-chart>
 ```
 
