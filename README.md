@@ -1,40 +1,63 @@
 # be-alit (🎇) [TODO]
 
-Use the power of lit-html from HTML Markup.
+Use the power of lit-html from HTML Markup, without imposing any security constraints.
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
-## Example 1a Using the canonical name
+# Part I Using the global registry
+
+## Example 1a Simple list, canonical name [TODO]
 
 ```html
-<ul be-alit='{
-    "vm": ["He", "She", "They", "Other"],
-    "eval": "onload",
-}'  onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
-</ul>
+<script type=module>
+    import {register} from 'be-alit/🎇.js';
+    register('listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
+</script>
+<ul be-alit-vm='["He", "She", "They", "Other"]' be-alit-with=listerine></ul>
 ```
 
-This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content.
+Our registered "listerine" literator is quite reusable.  Having defined it, we can reuse it throughout the application, as long as we pass in a view model that conforms to the same structure, and we want the output to match the same HTML pattern as well. 
 
-The eval specifier is optional (and is assumed to be the onload attribute if not specified).
+This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content of list elements.
 
 Editing JSON by hand is a bit error prone.  A [VS plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) can help with this.
 
-If the issue of escape characters in the lit expression proves problematic, use a previous script tag:
+A framework can theoretically pass the view model:
 
-## Example 1b
-
-```html
-<script nomodule>
-    html`${vm.map(i => html`<li>${i}</li>`)}`
-</script>
-<ul be-alit='{
-    "vm": ["He", "She", "They", "Other"],
-}'>
-</ul>
+```JavaScript
+await whenDefined('be-enhanced');
+oUL.beEnhanced.by.beAlit.vm = ["He", "She", "They", "Other"];
 ```
 
-An alternative name to be-alit is supported:  🎇.  This makes it a bit less tedious when we take advantage of the ability to break down the JSON expression into individual attributes: 
+Since this is seemingly far too advanced for most frameworks to handle, we provide a mechanism for pulling in the view model, described down below.
+
+It's a bit cumbersome to type be-alit repeatedly like we needed to do above.  That is the canonical name for this enhancement.  But in less formal settings, where clashes between emoji-loving enhancements can be avoided, we can use shorter syntax, by referencing a file such as [this one](https://github.com/bahrus/be-alit/blob/baseline/%F0%9F%8E%87.js) to register a shorter name:
+
+## Example 1b - with 🎇 emoji [TODO]
+
+```html
+<script type=module>
+    import {register} from 'be-alit/🎇.js';
+    register('listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
+</script>
+<ul 🎇-vm='["He", "She", "They", "Other"]' 🎇-with=listerine></ul>
+```
+
+## Example 1c - locally scoped literator
+
+In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment.)  For that we need to define an id that is unique to the application, such as a GUID:
+
+```html
+<script blow-dry=remove type=module>
+    import {within} from 'be-alit/🎇.js';
+    within('gvyZqWwRFEe+ADiKsAsSZQ', 'listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
+</script>
+<div id=gvyZqWwRFEe+ADiKsAsSZQ>
+    <ul 🎇-vm='["He", "She", "They", "Other"]' 🎇-with=listerine></ul>
+</div>
+```
+
+The "blow-dry=remove" attribute is there if working with declarative elements based on xtal-element, so that the script element doesn't get repeated with each instance.
 
 ## Example 1c
 
