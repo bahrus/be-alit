@@ -105,6 +105,19 @@ For a somewhat "raw" example:
 </patient-chart>
 ```
 
+## Suggestions for naming
+
+Due to the platform being negligent when it comes to supporting progressive enhancement, we had to give a name to our renderer.  In this case the name we gave was "orders".  We can't support anonymous inline JS expressions in our attributes, in other words.
+
+Naming things is emotionally draining.  Coming up with a formulaic way of deriving the name of the rendering process from the name of the entity that is being rendered may be helpful for developer productivity.
+
+The following table provides a suggestion for what such a formulaic approach might look like
+
+|  Entity                 |  Suggested Renderer name  | Sample attribute                                         |
+|-------------------------|---------------------------|----------------------------------------------------------|
+| medicalPrescriptions    | prescriptionRenders       | 🎇-with='prescriptionRenders from medicalPrescriptions' |
+| customers               | customerRenders           | 🎇-with='customerRenders from customers'                |
+
 
 For a slightly more "polished syntax (with more dependencies)" [TODO]
 
