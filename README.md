@@ -132,7 +132,7 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
         </medical-prescriptions>
         <script blow-dry=remove type=module>
             import {within} from 'be-alit/🎇.js';
-            within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
+            within('UUicp3Dh0kqKHlnAAbtw4Q', 'prescriptionRenders', e => e.r = html`${vm.map(prescription => html`
                 <tr itemscope=treatment-order>
                     <td>${prescription.OrderText}</td>
                     <td>
@@ -151,7 +151,7 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='orders from ~medicalPrescriptions'>
+            <tbody 🎇-with='prescriptionRenders from ~medicalPrescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
@@ -168,7 +168,7 @@ To bind to the patient-chart web component host:
     <template shadowrootmode=open>
         <script blow-dry=remove type=module>
             import {within} from 'be-alit/🎇.js';
-            within('UUicp3Dh0kqKHlnAAbtw4Q', 'orders', e => e.r = html`${vm.map(prescription => html`
+            within('UUicp3Dh0kqKHlnAAbtw4Q', 'prescriptionRenders', e => e.r = html`${vm.map(prescription => html`
                 <tr itemscope=treatment-order>
                     <td>${prescription.OrderText}</td>
                     <td>
@@ -187,7 +187,7 @@ To bind to the patient-chart web component host:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='orders from /prescriptions'>
+            <tbody 🎇-with='prescriptionRenders from /prescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
