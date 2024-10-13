@@ -4,32 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example 1a</title>
+    <!-- #include virtual="/imports.html" -->
 </head>
 <body>
-    <ul id=ul be-alit='{
-        "vm": ["He", "She", "They", "Other"],
-        "eval": "onload"
-    }'  onload="html`${vm.map(i => html`<li>${i}</li>`)}`">
-    </ul>
-    <script type=importmap>
-        {
-            "imports": {
-                "be-enhanced/": "/node_modules/be-enhanced/",
-                "be-exportable/": "/node_modules/be-exportable/",
-                "be-hive/":  "/node_modules/be-hive/",
-                "be-linked/": "/node_modules/be-linked/",
-                "lit-html/": "/node_modules/lit-html/",
-                "mount-observer/": "/node_modules/mount-observer/",
-                "trans-render/": "/node_modules/trans-render/"
-            }
-        }
+    <script type=module blow-dry-remove blocking=render>
+        import {html} from 'lit-html';
+        (await import('/🎇.js'))
+        .w('#pronouns')
+        .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
     </script>
-    <script type=module>
-        import '/behivior.js'
-    </script>
+    <ul id=pronouns 🎇-vm='["He", "She", "They", "Other"]'></ul>
+
     <script>
         setTimeout(() => {
-            ul.beEnhanced.beAlit.vm = ["I", "You", "Us", "Them"]
+            pronouns.beEnhanced['🎇'].vm = ["I", "You", "Us", "Them"]
         }, 2000);
     </script>
 </body>

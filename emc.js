@@ -11,6 +11,14 @@ import { w as bw } from 'be-hive/w.js';
  */
 export const emc = {
     base: 'be-alit',
+    branches: ['', 'vm'],
+    map: {
+        '1.0': {
+            instanceOf: 'Object',
+            mapsTo: 'vm'
+        }
+    },
+    enhancedElementInstanceOf: [HTMLElement],
     enhPropKey: 'beAlit',
     importEnh: async () => {
         const { BeAlit } = 
@@ -26,14 +34,6 @@ export const emc = {
 const mose = seed(emc);
 MountObserver.synthesize(document, BeHive, mose);
 
-/**
- * 
- * @param {string} handlerName 
- * @param {EventListenerOrFn} handler 
- */
-export function register(handlerName, handler){
-    Registry.register(emc, handlerName, handler);
-}
 
 /**
  * 
