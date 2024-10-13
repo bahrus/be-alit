@@ -12,7 +12,7 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 ```html
 <script type=module>
-    import {register} from 'be-alit/🎇.js';
+    import {register, html} from 'be-alit/🎇.js';
     register('listerine', vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
 <ul be-alit-vm='["He", "She", "They", "Other"]' be-alit-with=listerine></ul>
@@ -42,7 +42,7 @@ BTW, it's a bit cumbersome to type be-alit repeatedly like we needed to do above
 
 ```html
 <script type=module>
-    import {register} from 'be-alit/🎇.js';
+    import {register, html} from 'be-alit/🎇.js';
     register('listerine', vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
 <ul 🎇-vm='["He", "She", "They", "Other"]' 🎇-with=listerine></ul>
@@ -54,6 +54,7 @@ In some cases, we might want to define a local html generator (that gets reused 
 
 ```html
 <script blow-dry-remove type=module blocking=render>
+    import {html} from 'lit-html';
     (await import('be-alit/🎇.js'))
     .w('#gvyZqWwRFEeADiKsAsSZQ')
     .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
