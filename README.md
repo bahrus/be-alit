@@ -98,7 +98,7 @@ For a somewhat "raw" example:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody  id=UUicp3Dh0kqKHlnAAbtw4Q 🎇-with='orders from ~medicalPrescriptions'>
+            <tbody  id=UUicp3Dh0kqKHlnAAbtw4Q 🎇-with='~medicalPrescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
@@ -118,8 +118,9 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
             enh-be-fetching>
         </medical-prescriptions>
         <script blow-dry=remove type=module>
-            import {within} from 'be-alit/🎇.js';
-            within('UUicp3Dh0kqKHlnAAbtw4Q', 'prescriptionRenders', e => e.r = html`${vm.map(prescription => html`
+            (await import('be-alit/🎇.js'))
+            .w('UUicp3Dh0kqKHlnAAbtw4Q')
+            .s({r: html`${vm.map(prescription => html`
                 <tr itemscope=treatment-order>
                     <td>${prescription.OrderText}</td>
                     <td>
@@ -129,7 +130,7 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
                     <td>${prescription.Dosage}</td>
                     <td>${prescription.Freq}</td>
                 </tr>
-            `)}`);
+            `)}`});
         </script>
         <table id=UUicp3Dh0kqKHlnAAbtw4Q>
             <thead>
@@ -138,7 +139,7 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='prescriptionRenders from ~medicalPrescriptions'>
+            <tbody 🎇-with='~medicalPrescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
