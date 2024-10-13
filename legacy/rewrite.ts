@@ -1,4 +1,4 @@
-import {AP} from './types';
+import {AP} from '../types';
 
 export function rewrite({enhancedElement}: AP, scriptEl: HTMLScriptElement){
     const inner = scriptEl.innerHTML.trim();
