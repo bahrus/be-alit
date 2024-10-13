@@ -27,7 +27,7 @@ This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to gener
 
 Editing JSON by hand is a bit error prone.  A [VS plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) can help with this.
 
-A framework can theoretically pass the view model:
+A framework can theoretically pass in the view model:
 
 ```JavaScript
 await whenDefined('be-enhanced');
@@ -36,7 +36,7 @@ oUL.beEnhanced.by.beAlit.vm = ["He", "She", "They", "Other"];
 
 Since this is seemingly far too advanced for most frameworks to handle, we provide a mechanism for pulling in the view model, described down below.
 
-It's a bit cumbersome to type be-alit repeatedly like we needed to do above.  That is the canonical name for this enhancement.  But in less formal settings, where clashes between emoji-loving enhancements can be avoided, we can use shorter syntax, by referencing a file such as [this one](https://github.com/bahrus/be-alit/blob/baseline/%F0%9F%8E%87.js) to register a shorter name:
+BTW, it's a bit cumbersome to type be-alit repeatedly like we needed to do above.  That is the canonical name for this enhancement.  But in less formal settings, where clashes between emoji-loving enhancements can be avoided, we can use shorter syntax, by referencing a file such as [this one](https://github.com/bahrus/be-alit/blob/baseline/%F0%9F%8E%87.js) to register a shorter name:
 
 ## Example 1b - with 🎇 emoji [TODO]
 
@@ -50,7 +50,7 @@ It's a bit cumbersome to type be-alit repeatedly like we needed to do above.  Th
 
 ## Example 1c - locally scoped literator [TODO]
 
-In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment).  For that, we need adorn the element with just enough markup to ensure we apply the correct renderer without applying to elements we don't intend.  The safest route would be to use an id (or some other attribute or class or part token) that is unique within the application, such as a GUID:
+In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment).  For that, we need adorn the element with just enough markup to ensure we apply the correct renderer without applying to elements we don't intend.  The safest route would be to use the id attribute (or some other attribute or class or part token) whose value is unique within the application, such as a GUID:
 
 ```html
 <script blow-dry-remove type=module blocking=render>
@@ -63,7 +63,7 @@ In some cases, we might want to define a local html generator (that gets reused 
 </div>
 ```
 
-The "blow-dry-remove" attribute is there if working with declarative custom elements based on xtal-element, so that the script element doesn't get repeated with each instance.
+The "blow-dry-remove" attribute is there if working with declarative custom elements based on [xtal-element](https://github.com/bahrus/xtal-element), so that the script element doesn't get repeated with each instance.
 
 
 # Part II Pulling in the View Model
