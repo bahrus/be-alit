@@ -11,7 +11,7 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 ```html
 <script type=module>
     import {register} from 'be-alit/🎇.js';
-    register('listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
+    register('listerine', vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
 <ul be-alit-vm='["He", "She", "They", "Other"]' be-alit-with=listerine></ul>
 ```
@@ -38,12 +38,12 @@ It's a bit cumbersome to type be-alit repeatedly like we needed to do above.  Th
 ```html
 <script type=module>
     import {register} from 'be-alit/🎇.js';
-    register('listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
+    register('listerine', vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
 <ul 🎇-vm='["He", "She", "They", "Other"]' 🎇-with=listerine></ul>
 ```
 
-## Example 1c - locally scoped literator
+## Example 1c - locally scoped literator [TODO]
 
 In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment.)  For that we need adorn the element with just enough markup to ensure we apply the correct renderer without applying to elements we don't intend.  The safest route would be to use an id (or some other attribute or class or part) that is unique within the application, such as a GUID:
 
@@ -51,7 +51,7 @@ In some cases, we might want to define a local html generator (that gets reused 
 <script blow-dry=remove type=module blocking=render>
     (await import('be-alit/🎇.js'))
     .w('#gvyZqWwRFEeADiKsAsSZQ')
-    .s({r: vm => html `${vm.map(i => html`<li>${i}</li>`)}`});
+    .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
 <div>
     <ul id=gvyZqWwRFEeADiKsAsSZQ 🎇-vm='["He", "She", "They", "Other"]'></ul>
@@ -79,8 +79,8 @@ For a somewhat "raw" example:
         <script blow-dry=remove type=module>
             (await import('be-alit/🎇.js'))
             .w('UUicp3Dh0kqKHlnAAbtw4Q')
-            .s({r: vm => html`${vm.map(prescription => html`
-                <tr itemscope=treatment-order>
+            .p(vm => html`${vm.map(prescription => html`
+                <tr itemscope=treatment-order .ish=${prescription}>
                     <td>${prescription.OrderText}</td>
                     <td>
                         <button disabled 🕹️=orderItem>Order Item</button>
@@ -89,7 +89,7 @@ For a somewhat "raw" example:
                     <td>${prescription.Dosage}</td>
                     <td>${prescription.Freq}</td>
                 </tr>
-            `)}`});
+            `)}`);
         </script>
         <table>
             <thead>
@@ -106,9 +106,9 @@ For a somewhat "raw" example:
 </patient-chart>
 ```
 
-For a slightly more "polished syntax (with more dependencies)" [TODO]
+For a slightly more "polished syntax (with more dependencies)" 
 
-## Example 2b
+## Example 2b [TODO]
 
 ```html
 <patient-chart>
@@ -120,8 +120,8 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
         <script blow-dry=remove type=module>
             (await import('be-alit/🎇.js'))
             .w('UUicp3Dh0kqKHlnAAbtw4Q')
-            .s({r: html`${vm.map(prescription => html`
-                <tr itemscope=treatment-order>
+            .p(vm => html`${vm.map(prescription => html`
+                <tr itemscope=treatment-order .ish=${prescription}>
                     <td>${prescription.OrderText}</td>
                     <td>
                         <button disabled 🕹️=orderItem>Order Item</button>
@@ -130,16 +130,16 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
                     <td>${prescription.Dosage}</td>
                     <td>${prescription.Freq}</td>
                 </tr>
-            `)}`});
+            `)}`);
         </script>
-        <table id=UUicp3Dh0kqKHlnAAbtw4Q>
+        <table>
             <thead>
                 <th>Prescription</th>
                 <th>Prescriber</th>
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='~medicalPrescriptions'>
+            <tbody id=UUicp3Dh0kqKHlnAAbtw4Q 🎇-with='~medicalPrescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
@@ -149,7 +149,7 @@ For a slightly more "polished syntax (with more dependencies)" [TODO]
 
 To bind to the patient-chart web component host:
 
-## Example 2c
+## Example 2c [TODO]
 
 ```html
 <patient-chart>
