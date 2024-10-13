@@ -4,24 +4,36 @@ Use the power of lit-html from HTML Markup, without imposing any security constr
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
-# Part I Using the global registry
 
-
-
-## Example 1a Simple list, canonical name [TODO]
+## Example 1a - Simple list, canonical name, without lit-html [TODO]
 
 ```html
 <script type=module>
-    import {register, html} from 'be-alit/🎇.js';
-    register('listerine', vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
+    const html = String.raw;
+    (await import('be-alit/🎇.js'))
+    .w('#pronouns')
+    .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
-<ul be-alit-vm='["He", "She", "They", "Other"]' be-alit-with=listerine></ul>
+<ul id=pronouns be-alit-vm='["He", "She", "They", "Other"]'></ul>
 ```
 
 > [!NOTE]
 > Originally, I was going to support built-in inline event handlers for a more elegant solution.  However, the powers that be chose to not accommodate that approach, when applying minimal security measures, hence the solution that is before us.
 
-Our registered "listerine" literator is quite reusable.  Having defined it, we can reuse it throughout the application, as long as we pass in a view model that conforms to the same structure, and we want the output to match the same HTML pattern as well. 
+> [!NOTE]
+> This code will work, but it is vulnerable to xss attacks -- the attribute be-alit-vm can contain dangerous HTML (like script tags). 
+
+## Example 1b - Simple list, canonical name, without lit-html [TODO]
+
+```html
+<script type=module>
+    import {html} from 'lit-html';
+    (await import('be-alit/🎇.js'))
+    .w('#pronouns')
+    .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
+</script>
+<ul id=pronouns be-alit-vm='["He", "She", "They", "Other"]'></ul>
+```
 
 This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content of list elements.
 
