@@ -8,31 +8,31 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 ## Example 1a - Simple list, canonical name, without lit-html [TODO]
 
 ```html
-<script type=module>
+<script type=module blow-dry-remove blocking=render>
     const html = String.raw;
     (await import('be-alit/🎇.js'))
     .w('#pronouns')
     .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
-<ul id=pronouns be-alit-vm='["He", "She", "They", "Other"]'></ul>
+<ul id=pronouns 🎇-vm='["He", "She", "They", "Other"]'></ul>
 ```
 
 > [!NOTE]
 > Originally, I was going to support built-in inline event handlers for a more elegant solution.  However, the powers that be chose to not accommodate that approach, when applying minimal security measures, hence the solution that is before us.
 
 > [!NOTE]
-> This code will work, but it is vulnerable to xss attacks -- the attribute be-alit-vm can contain dangerous HTML (like script tags). 
+> This code will work, but it is vulnerable to xss attacks -- the attribute be-alit-vm can contain dangerous HTML (like script tags). lit-html to the rescue!
 
 ## Example 1b - Simple list, canonical name, without lit-html [TODO]
 
 ```html
-<script type=module>
+<script type=module blow-dry-remove blocking=render>
     import {html} from 'lit-html';
     (await import('be-alit/🎇.js'))
     .w('#pronouns')
     .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
 </script>
-<ul id=pronouns be-alit-vm='["He", "She", "They", "Other"]'></ul>
+<ul id=pronouns 🎇-vm='["He", "She", "They", "Other"]'></ul>
 ```
 
 This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content of list elements.
