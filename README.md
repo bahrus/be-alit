@@ -6,6 +6,8 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 # Part I Using the global registry
 
+
+
 ## Example 1a Simple list, canonical name [TODO]
 
 ```html
@@ -15,6 +17,9 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 </script>
 <ul be-alit-vm='["He", "She", "They", "Other"]' be-alit-with=listerine></ul>
 ```
+
+> [!NOTE]
+> Originally, I was going to support built-in inline event handlers for a more elegant solution.  However, the powers that be chose to not accommodate that approach, when applying minimal security measures, hence the solution that is before us.
 
 Our registered "listerine" literator is quite reusable.  Having defined it, we can reuse it throughout the application, as long as we pass in a view model that conforms to the same structure, and we want the output to match the same HTML pattern as well. 
 
@@ -45,10 +50,10 @@ It's a bit cumbersome to type be-alit repeatedly like we needed to do above.  Th
 
 ## Example 1c - locally scoped literator [TODO]
 
-In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment.)  For that we need adorn the element with just enough markup to ensure we apply the correct renderer without applying to elements we don't intend.  The safest route would be to use an id (or some other attribute or class or part) that is unique within the application, such as a GUID:
+In some cases, we might want to define a local html generator (that gets reused with each repeated instance of the DOM fragment).  For that, we need adorn the element with just enough markup to ensure we apply the correct renderer without applying to elements we don't intend.  The safest route would be to use an id (or some other attribute or class or part token) that is unique within the application, such as a GUID:
 
 ```html
-<script blow-dry=remove type=module blocking=render>
+<script blow-dry-remove type=module blocking=render>
     (await import('be-alit/🎇.js'))
     .w('#gvyZqWwRFEeADiKsAsSZQ')
     .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
@@ -58,14 +63,14 @@ In some cases, we might want to define a local html generator (that gets reused 
 </div>
 ```
 
-The "blow-dry=remove" attribute is there if working with declarative custom elements based on xtal-element, so that the script element doesn't get repeated with each instance.
+The "blow-dry-remove" attribute is there if working with declarative custom elements based on xtal-element, so that the script element doesn't get repeated with each instance.
 
 
 # Part II Pulling in the View Model
 
 ## Example 2a [TODO]
 
-As mentioned above, most, it is seeming beyond any frameworks's ability in to pass values to the view model in the proscribed  way.  *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
+As mentioned above, it is seemingly beyond any frameworks's ability to pass values to the view model in the proscribed  way.  So*be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
 For a somewhat "raw" example:
 
