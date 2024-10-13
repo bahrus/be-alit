@@ -49,11 +49,12 @@ In some cases, we might want to define a local html generator (that gets reused 
 
 ```html
 <script blow-dry=remove type=module>
-    import {within} from 'be-alit/🎇.js';
-    within('#gvyZqWwRFEe+ADiKsAsSZQ', 'listerine', e => e.r = html `${e.vm.map(i => html`<li>${i}</li>`)}`);
+    (await import('be-alit/🎇.js'))
+    .w('#gvyZqWwRFEeADiKsAsSZQ')
+    .s({r: vm => html `${vm.map(i => html`<li>${i}</li>`)}`});
 </script>
-<div id=gvyZqWwRFEe+ADiKsAsSZQ>
-    <ul 🎇-vm='["He", "She", "They", "Other"]' 🎇-with=listerine></ul>
+<div>
+    <ul id=gvyZqWwRFEe+ADiKsAsSZQ 🎇-vm='["He", "She", "They", "Other"]'></ul>
 </div>
 ```
 
