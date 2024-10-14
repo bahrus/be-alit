@@ -35,7 +35,7 @@ Since this is seemingly far too advanced for most frameworks to handle, we provi
 
 ## Example 2a [TODO]
 
-As mentioned above, it is seemingly beyond any frameworks's ability to pass values to the view model in the proscribed  way.  So*be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
+As mentioned above, it is seemingly beyond any frameworks's ability to pass values to the view model in the proscribed  way.  So *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
 For a somewhat "raw" example:
 
