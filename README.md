@@ -21,7 +21,7 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 </script>
 ```
 
-This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content , namely the  list (li) elements.
+This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content, namely the  list (li) elements.
 
 Editing JSON by hand is a bit error prone.  A [VS plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) can help with this.
 
@@ -55,7 +55,7 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
             </thead>
             <tbody>
                 <script 
-                    be-alit-with='~medicalPrescriptions' 
+                    be-alit-with='~medicalPrescriptions::load' 
                     blow-dry-preserve=renderer blow-dry-remove=siblings>
                     document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>

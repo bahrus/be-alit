@@ -40,7 +40,8 @@ class BeAlit extends BE {
     getRenderer(self){
         const {enhancedElement} = self;
         return /** @type {BAP} */({
-            renderer: enhancedElement.renderer
+            renderer: enhancedElement.renderer,
+            resolved: true,
         });
     }
 
