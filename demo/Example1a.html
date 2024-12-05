@@ -7,17 +7,15 @@
     <!-- #include virtual="/imports.html" -->
 </head>
 <body>
-    <script type=module blow-dry-remove blocking=render>
-        import {html} from 'lit-html';
-        (await import('/🎇.js'))
-        .w('#pronouns')
-        .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
-    </script>
-    <ul id=pronouns 🎇-vm='["He", "She", "They", "Other"]'></ul>
+    <ul>
+        <script id=pronouns be-alit-vm='["He", "She", "They", "Other"]'>
+            document.currentScript.renderer = (vm, html) => html `${vm.map(i => html`<li>${i}</li>`)}`;
+        </script>
+    </ul>
 
     <script>
         setTimeout(() => {
-            pronouns.beEnhanced['🎇'].vm = ["I", "You", "Us", "Them"]
+            pronouns.beEnhanced['beAlit'].vm = ["I", "You", "Us", "Them"]
         }, 2000);
     </script>
 </body>

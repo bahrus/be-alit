@@ -5,17 +5,23 @@ Use the power of lit-html from HTML Markup, without imposing any security constr
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 
-## Example 1a - Simple list
+## Example 1a - Simple list [TODO]
 
 ```html
 <ul>
-    <script be-alit-vm='["He", "She", "They", "Other"]'>
+    <script id=pronouns be-alit-vm='["He", "She", "They", "Other"]'>
         document.currentScript.renderer = (vm, html) => html `${vm.map(i => html`<li>${i}</li>`)}`;
     </script>
 </ul>
+
+<script>
+    setTimeout(() => {
+        pronouns.beEnhanced['beAlit'].vm = ["I", "You", "Us", "Them"]
+    }, 2000);
+</script>
 ```
 
-This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content of list elements.
+This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content , namely the  list (li) elements.
 
 Editing JSON by hand is a bit error prone.  A [VS plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) can help with this.
 
