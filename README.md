@@ -5,7 +5,7 @@ Use the power of lit-html from HTML Markup, without imposing any security constr
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 
-## Example 1a - Simple list, canonical name, with lit-html
+## Example 1a - Simple list
 
 ```html
 <ul be-alit-vm='["He", "She", "They", "Other"]'>
