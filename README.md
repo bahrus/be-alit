@@ -51,7 +51,7 @@ As mentioned above, it is seemingly beyond any frameworks's ability to pass valu
                 <th>Frequency</th>
             </thead>
             <tbody be-alit-with='~medicalPrescriptions'>
-                <script blow-dry-remove>
+                <script blow-dry=remove>
                     document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
@@ -94,7 +94,7 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
                 <th>Frequency</th>
             </thead>
             <tbody 🎇-with='~medicalPrescriptions'>
-                <script blow-dry-remove>
+                <script blow-dry=remove>
                     document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
@@ -121,20 +121,6 @@ To bind to the patient-chart web component host:
 ```html
 <patient-chart>
     <template shadowrootmode=open>
-        <script blow-dry=remove type=module>
-            import {within} from 'be-alit/🎇.js';
-            within('UUicp3Dh0kqKHlnAAbtw4Q', 'prescriptionRenders', e => e.r = html`${vm.map(prescription => html`
-                <tr itemscope=treatment-order>
-                    <td>${prescription.OrderText}</td>
-                    <td>
-                        <button disabled 🕹️=orderItem>Order Item</button>
-                        <div>${prescription.Prescriber}</div>
-                    </td>
-                    <td>${prescription.Dosage}</td>
-                    <td>${prescription.Freq}</td>
-                </tr>
-            `)}`);
-        </script>
         <table id=UUicp3Dh0kqKHlnAAbtw4Q>
             <thead>
                 <th>Prescription</th>
