@@ -73,6 +73,10 @@ As mentioned above, it is seemingly beyond any frameworks's ability to pass valu
 
 blow-dry-remove is a completely optional setting, that is utilized by [https://githuc.com/bahrus/xtal-element](xtal-element) to take an optimized "snapshot" of a (partly) server-rendered web component, and extract out the things that aren't needed in the template that needs cloning repeatedly.
 
+## Alternative (shorter) name.
+
+be-alit is the canonical name of this enhancement.  But it is easy as pie to define alternative names.  This package provides one such suggestion:
+
 ## Example 2b [TODO]
 
 ```html
@@ -80,24 +84,8 @@ blow-dry-remove is a completely optional setting, that is utilized by [https://g
     <template shadowrootmode=open>
         <medical-prescriptions 
             href="prescriptions.json?patient=zero" 
-            enh-be-fetching>
+            enh-be-kvetching>
         </medical-prescriptions>
-        <script type=module blocking=render blow-dry=remove>
-            import {html} from 'lit-html';
-            (await import('be-alit/🎇.js'))
-            .w('UUicp3Dh0kqKHlnAAbtw4Q')
-            .p(vm => html`${vm.map(prescription => html`
-                <tr itemscope=treatment-order .ish=${prescription}>
-                    <td>${prescription.OrderText}</td>
-                    <td>
-                        <button disabled 🕹️=orderItem>Order Item</button>
-                        <div>${prescription.Prescriber}</div>
-                    </td>
-                    <td>${prescription.Dosage}</td>
-                    <td>${prescription.Freq}</td>
-                </tr>
-            `)}`);
-        </script>
         <table>
             <thead>
                 <th>Prescription</th>
@@ -105,7 +93,20 @@ blow-dry-remove is a completely optional setting, that is utilized by [https://g
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody id=UUicp3Dh0kqKHlnAAbtw4Q 🎇-with='~medicalPrescriptions'>
+            <tbody 🎇-with='~medicalPrescriptions'>
+                <script blow-dry-remove>
+                    document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
+                        <tr itemscope=treatment-order .ish=${prescription}>
+                            <td>${prescription.OrderText}</td>
+                            <td>
+                                <button disabled 🕹️=orderItem>Order Item</button>
+                                <div>${prescription.Prescriber}</div>
+                            </td>
+                            <td>${prescription.Dosage}</td>
+                            <td>${prescription.Freq}</td>
+                        </tr>
+                    `)}`;
+                </script>
             </tbody>
         </table>
         <be-hive></be-hive>
