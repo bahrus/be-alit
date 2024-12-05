@@ -8,7 +8,7 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 ## Example 1a - Simple list, canonical name, with lit-html
 
 ```html
-<ul be-alit2w-vm='["He", "She", "They", "Other"]'>
+<ul be-alit-vm='["He", "She", "They", "Other"]'>
     <script>
         document.currentScript.renderer = (vm, html) => html `${vm.map(i => html`<li>${i}</li>`)}`;
     </script>
@@ -33,9 +33,8 @@ Since this is seemingly far too advanced for most frameworks to handle, we provi
 
 ## Example 2a [TODO]
 
-As mentioned above, it is seemingly beyond any frameworks's ability to pass values to the view model in the proscribed  way.  So*be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
+As mentioned above, it is seemingly beyond any frameworks's ability to pass values to the view model in the proscribed  way.  So *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
-For a somewhat "raw" example:
 
 ```html
 <patient-chart>
@@ -44,22 +43,6 @@ For a somewhat "raw" example:
             href="prescriptions.json?patient=zero" 
             enh-be-kvetching>
         </medical-prescriptions>
-        <script type=module blocking=render blow-dry=remove >
-            import {html} from 'lit-html';
-            (await import('be-alit/🎇.js'))
-            .w('[🎇-with="~medicalPrescriptions"]')
-            .p(vm => html`${vm.map(prescription => html`
-                <tr itemscope=treatment-order .ish=${prescription}>
-                    <td>${prescription.OrderText}</td>
-                    <td>
-                        <button disabled 🕹️=orderItem>Order Item</button>
-                        <div>${prescription.Prescriber}</div>
-                    </td>
-                    <td>${prescription.Dosage}</td>
-                    <td>${prescription.Freq}</td>
-                </tr>
-            `)}`);
-        </script>
         <table>
             <thead>
                 <th>Prescription</th>
@@ -67,7 +50,20 @@ For a somewhat "raw" example:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='~medicalPrescriptions'>
+            <tbody be-alit-with='~medicalPrescriptions'>
+                <script blow-dry-remove>
+                    document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
+                        <tr itemscope=treatment-order .ish=${prescription}>
+                            <td>${prescription.OrderText}</td>
+                            <td>
+                                <button disabled 🕹️=orderItem>Order Item</button>
+                                <div>${prescription.Prescriber}</div>
+                            </td>
+                            <td>${prescription.Dosage}</td>
+                            <td>${prescription.Freq}</td>
+                        </tr>
+                    `)}`;
+                </script>
             </tbody>
         </table>
         <be-hive></be-hive>
@@ -75,7 +71,7 @@ For a somewhat "raw" example:
 </patient-chart>
 ```
 
-For a slightly more "polished syntax (with more dependencies)" 
+blow-dry-remove is a completely optional setting, that is utilized by [https://githuc.com/bahrus/xtal-element](xtal-element) to take an optimized "snapshot" of a (partly) server-rendered web component, and extract out the things that aren't needed in the template that needs cloning repeatedly.
 
 ## Example 2b [TODO]
 
