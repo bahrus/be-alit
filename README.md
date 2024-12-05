@@ -94,7 +94,7 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
                 <th>Frequency</th>
             </thead>
             <tbody 🎇-with='~medicalPrescriptions'>
-                <script blow-dry=remove>
+                <script blow-dry-preserve="renderer">
                     document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
