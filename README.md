@@ -50,10 +50,8 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
             <tbody>
                 <script 
                     be-alit-with='~medicalPrescriptions' 
-                    blow-dry-preserve=renderer>
-                    document.currentScript.renderer = (vm, html) => html`
-                    <?blowDryRemove start?>
-                    ${vm.map(prescription => html`
+                    blow-dry-preserve=renderer blow-dry-remove=siblings>
+                    document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
                             <td>
@@ -63,9 +61,7 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
                             <td>${prescription.Dosage}</td>
                             <td>${prescription.Freq}</td>
                         </tr>
-                    `)}
-                    <?blowDryRemove end?>
-                    `;
+                    `)}`;
                 </script>
             </tbody>
         </table>
@@ -74,7 +70,7 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
 </patient-chart>
 ```
 
-blow-dry-preserve is a completely optional setting, that is utilized by [https://github.com/bahrus/xtal-element](xtal-element) to take an optimized "snapshot" of a (partly) server-rendered web component, and extract out the things that aren't needed in the template that needs cloning repeatedly.
+blow-dry-preserve and the blowDryRemove processing instructions are completely optional settings, that are utilized by [https://github.com/bahrus/xtal-element](xtal-element) to take an optimized "snapshot" of a (partly) server-rendered web component, and extract out the things that aren't needed in the template that needs cloning repeatedly.
 
 ## Alternative (shorter) name.
 
@@ -98,7 +94,9 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
             </thead>
             <tbody >
                 <script 🎇-with='~medicalPrescriptions' blow-dry-preserve="renderer">
-                    document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
+                    document.currentScript.renderer = (vm, html) => html`
+                    <?blowDryRemove start?>
+                    ${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
                             <td>
@@ -108,7 +106,9 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
                             <td>${prescription.Dosage}</td>
                             <td>${prescription.Freq}</td>
                         </tr>
-                    `)}`;
+                    `)}
+                    <?blowDryRemove end?>
+                    `;
                 </script>
             </tbody>
         </table>
@@ -124,7 +124,7 @@ To bind to the patient-chart web component host:
 ```html
 <patient-chart>
     <template shadowrootmode=open>
-        <table id=UUicp3Dh0kqKHlnAAbtw4Q>
+        <table>
             <thead>
                 <th>Prescription</th>
                 <th>Prescriber</th>
