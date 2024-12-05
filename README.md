@@ -1,4 +1,4 @@
-# be-alit (🎇) [WIP]
+# be-alit (🎇) [TODO]
 
 Use the power of lit-html from HTML Markup, without imposing any security constraints.
 
@@ -8,13 +8,11 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 ## Example 1a - Simple list, canonical name, with lit-html
 
 ```html
-<script type=module blow-dry-remove blocking=render>
-    import {html} from 'lit-html';
-    (await import('be-alit/🎇.js'))
-    .w('#pronouns')
-    .p(vm => html `${vm.map(i => html`<li>${i}</li>`)}`);
-</script>
-<ul id=pronouns 🎇-vm='["He", "She", "They", "Other"]'></ul>
+<ul be-alit2w-vm='["He", "She", "They", "Other"]'>
+    <script>
+        document.currentScript.renderer = (vm, html) => html `${vm.map(i => html`<li>${i}</li>`)}`;
+    </script>
+</ul>
 ```
 
 This uses the [lit-html](https://www.npmjs.com/package/lit-html) engine to generate the inner content of list elements.

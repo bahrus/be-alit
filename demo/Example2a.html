@@ -24,11 +24,22 @@
 <body>
     <patient-chart>
         #shadow
-            <script blow-dry id=my-fns nomodule>
-                export const orderItem  = (vm, e) => {
-                    console.log({vm, e});
-                }
-            </script>
+        <script type=module blocking=render blow-dry=remove >
+            import {html} from 'lit-html';
+            (await import('be-alit/🎇.js'))
+            .w('[🎇-with="~medicalPrescriptions"]')
+            .p(vm => html`${vm.map(prescription => html`
+                <tr itemscope=treatment-order .ish=${prescription}>
+                    <td>${prescription.OrderText}</td>
+                    <td>
+                        <button disabled 🕹️=orderItem>Order Item</button>
+                        <div>${prescription.Prescriber}</div>
+                    </td>
+                    <td>${prescription.Dosage}</td>
+                    <td>${prescription.Freq}</td>
+                </tr>
+            `)}`);
+        </script>
             <medical-prescriptions 
                 href="prescriptions.json" 
                 enh-be-kvetching>
@@ -40,7 +51,7 @@
                     <th>Dosage</th>
                     <th>Frequency</th>
                 </thead>
-                <tbody 🎇='with ~medicalPrescriptions' onload="
+                <tbody 🎇-with='~medicalPrescriptions' onload="
                     html`${vm.map(prescription => html`
                         <tr itemscope=💰 .💰=${prescription} 💰-🕹️=#my-fns>
                             <td>${prescription.OrderText}</td>
@@ -56,12 +67,12 @@
                 ">
                 </tbody>
             </table>
+
             <be-hive></be-hive>
             <xtal-element></xtal-element>
     </patient-chart>
     
     <script type=module>
-        import '../behivior.js';
         import 'be-kvetching/behivior.js';
     </script>
 </body>

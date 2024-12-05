@@ -11,11 +11,15 @@ import { w as bw } from 'be-hive/w.js';
  */
 export const emc = {
     base: 'be-alit',
-    branches: ['', 'vm'],
+    branches: ['', 'vm', 'with'],
     map: {
         '1.0': {
             instanceOf: 'Object',
             mapsTo: 'vm'
+        },
+        '2.0': {
+            instanceOf: 'DSSArray',
+            mapsTo: 'with'
         }
     },
     enhancedElementInstanceOf: [HTMLElement],
