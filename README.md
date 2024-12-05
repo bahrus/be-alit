@@ -8,8 +8,8 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 ## Example 1a - Simple list
 
 ```html
-<ul be-alit-vm='["He", "She", "They", "Other"]'>
-    <script>
+<ul>
+    <script be-alit-vm='["He", "She", "They", "Other"]'>
         document.currentScript.renderer = (vm, html) => html `${vm.map(i => html`<li>${i}</li>`)}`;
     </script>
 </ul>
@@ -23,17 +23,14 @@ A framework can theoretically pass in the view model:
 
 ```JavaScript
 await whenDefined('be-enhanced');
-oUL.beEnhanced.by.beAlit.vm = ["He", "She", "They", "Other"];
+oScript.beEnhanced.by.beAlit.vm = ["He", "She", "They", "Other"];
 ```
-
-Since this is seemingly far too advanced for most frameworks to handle, we provide a mechanism for pulling in the view model, described below.
-
 
 # Part II Pulling in the View Model
 
 ## Example 2a [TODO]
 
-As mentioned above, it is seemingly beyond any frameworks's ability to pass values to the view model in the proscribed  way.  So *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
+As suggested above, it is seemingly beyond most frameworks's ability to pass values to the view model in the proscribed  way.  So *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
 
 ```html
@@ -50,9 +47,13 @@ As mentioned above, it is seemingly beyond any frameworks's ability to pass valu
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody be-alit-with='~medicalPrescriptions'>
-                <script blow-dry=remove>
-                    document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
+            <tbody>
+                <script 
+                    be-alit-with='~medicalPrescriptions' 
+                    blow-dry-preserve=renderer>
+                    document.currentScript.renderer = (vm, html) => html`
+                    <?blowDryRemove start?>
+                    ${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
                             <td>
@@ -62,7 +63,9 @@ As mentioned above, it is seemingly beyond any frameworks's ability to pass valu
                             <td>${prescription.Dosage}</td>
                             <td>${prescription.Freq}</td>
                         </tr>
-                    `)}`;
+                    `)}
+                    <?blowDryRemove end?>
+                    `;
                 </script>
             </tbody>
         </table>
@@ -71,7 +74,7 @@ As mentioned above, it is seemingly beyond any frameworks's ability to pass valu
 </patient-chart>
 ```
 
-blow-dry-remove is a completely optional setting, that is utilized by [https://githuc.com/bahrus/xtal-element](xtal-element) to take an optimized "snapshot" of a (partly) server-rendered web component, and extract out the things that aren't needed in the template that needs cloning repeatedly.
+blow-dry-preserve is a completely optional setting, that is utilized by [https://github.com/bahrus/xtal-element](xtal-element) to take an optimized "snapshot" of a (partly) server-rendered web component, and extract out the things that aren't needed in the template that needs cloning repeatedly.
 
 ## Alternative (shorter) name.
 
@@ -93,8 +96,8 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='~medicalPrescriptions'>
-                <script blow-dry-preserve="renderer">
+            <tbody >
+                <script 🎇-with='~medicalPrescriptions' blow-dry-preserve="renderer">
                     document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
