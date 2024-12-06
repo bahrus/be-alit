@@ -1,6 +1,6 @@
 {
   "name": "be-alit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "keywords": [
     "web-components",
     "web-component",
@@ -13,7 +13,7 @@
   "description": "Use the power of lit-html from HTML Markup.",
   "main": "be-alit.js",
   "module": "be-alit.js",
-  "exports":{
+  "exports": {
     ".": "./be-alit.js",
     "./emc.js": "./emc.js",
     "./be-alit.js": "./be-alit.js",
