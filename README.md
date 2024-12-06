@@ -1,4 +1,4 @@
-# be-alit (🎇) [TODO]
+# be-alit (🎇)
 
 Use the power of lit-html from HTML Markup, without imposing any security constraints.
 
@@ -34,7 +34,7 @@ oScript.beEnhanced.by.beAlit.vm = ["He", "She", "They", "Other"];
 
 # Part II Pulling in the View Model
 
-## Example 2a [TODO]
+## Example 2a
 
 As suggested above, it is seemingly beyond most frameworks's ability to pass values to the view model in the proscribed  way.  So *be-alit* can take over the reigns of binding, and tap into the power of [DSS](https://github.com/bahrus/trans-render/wiki/VIII.--Directed-Scoped-Specifiers-(DSS)).
 
@@ -144,3 +144,33 @@ To bind to the patient-chart web component host:
     </template>
 </patient-chart>
 ```
+
+## Viewing Locally
+
+Any web server that serves static files will do but...
+
+1.  Install git.
+2.  Fork/clone this repo.
+3.  Install node.
+4.  Install Python 3 or later.
+5.  Open command window to folder where you cloned this repo.
+6.  > npm install
+7.  > npm run serve
+8.  Open http://localhost:8000/demo in a modern browser.
+
+## Importing in ES Modules:
+
+```JavaScript
+import 'be-alit/be-alit.js';
+
+```
+
+## Using from CDN:
+
+```html
+<script type=module crossorigin=anonymous>
+    import 'https://esm.run/be-alit';
+</script>
+```
+
+
