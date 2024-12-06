@@ -82,7 +82,7 @@ blow-dry-preserve and the blowDryRemove processing instructions are completely o
 
 be-alit is the canonical name of this enhancement.  But it is easy as pie to define alternative names.  This package provides one such suggestion:
 
-## Example 2b [TODO]
+## Example 2b
 
 ```html
 <patient-chart>
@@ -125,7 +125,7 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
 
 To bind to the patient-chart web component host:
 
-## Example 2c [TODO]
+## Example 2c
 
 ```html
 <patient-chart>
