@@ -16,7 +16,7 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 <script>
     setTimeout(() => {
-        pronouns.beEnhanced['beAlit'].vm = ["I", "You", "Us", "Them"]
+        pronouns.beEnhanced.beAlit.vm = ["I", "You", "Us", "Them"];
     }, 2000);
 </script>
 ```
