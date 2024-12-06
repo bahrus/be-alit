@@ -20,7 +20,7 @@ export const emc = {
             mapsTo: 'with'
         }
     },
-    enhancedElementInstanceOf: [HTMLElement],
+    enhancedElementInstanceOf: [HTMLScriptElement],
     enhPropKey: 'beAlit',
     importEnh: async () => {
         const { BeAlit } = 
