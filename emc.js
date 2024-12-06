@@ -17,7 +17,7 @@ export const emc = {
         },
         '2.0': {
             instanceOf: 'DSSArray',
-            mapsTo: 'with'
+            arrValMapsTo: 'with'
         }
     },
     enhancedElementInstanceOf: [HTMLScriptElement],

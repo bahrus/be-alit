@@ -23,6 +23,12 @@ class BeAlit extends BE {
             ...propInfo,
             vm: {},
             renderer: {},
+            absorbingObject: {},
+            with: {},
+        },
+        compacts:{
+            when_with_changes_invoke_observe: 0,
+            when_absorbingObject_changes_invoke_absorb: 0,
         },
         actions: {
             getRenderer: {
@@ -34,7 +40,7 @@ class BeAlit extends BE {
         },
         positractions: [resolved, rejected],
         handlers: {
-            absorbingObject_to_doRender_on: '.'
+            absorbingObject_to_absorb_on: '.'
         }
     }
 
@@ -75,10 +81,11 @@ class BeAlit extends BE {
         //package it?
         const remoteEl = await find(enhancedElement, specifier);
         if (!(remoteEl instanceof EventTarget)) throw 404;
-        const { prop, host } = specifier;
+        const { host } = specifier;
         let propToAbsorb = undefined;
         /** @type {string | undefined} */
         let evt = specifier.evt || 'input';
+        const prop = specifier.prop || 'value';
         if (host) {
             if (prop === undefined)
                 throw 'NI';
@@ -92,6 +99,18 @@ class BeAlit extends BE {
         });
         return /** @type {BAP} */({
             absorbingObject
+        });
+    }
+
+    /**
+     * 
+     * @param {BAP} self 
+     */
+    async absorb(self){
+        const {absorbingObject} = self;
+        const vm = await absorbingObject.getValue();
+        return /** @type {BAP} */({
+            vm,
         });
     }
     

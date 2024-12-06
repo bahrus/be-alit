@@ -4,43 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example 2</title>
-    <script type=importmap>
-        {
-            "imports": {
-                "be-enhanced/": "../node_modules/be-enhanced/",
-                "be-exportable/": "../node_modules/be-exportable/",
-                "be-hive/":  "../node_modules/be-hive/",
-                "be-kvetching/": "../node_modules/be-kvetching/",
-                "be-linked/": "../node_modules/be-linked/",
-                "k-fetch/": "../node_modules/k-fetch/",
-                "lit-html/": "../node_modules/lit-html/",
-                "mount-observer/": "../node_modules/mount-observer/",
-                "trans-render/": "../node_modules/trans-render/",
-                "xtal-element/": "../node_modules/xtal-element/"
-            }
-        }
-    </script>
+    <!-- #include virtual="/imports.html" -->
 </head>
 <body>
     <patient-chart>
-        #shadow
-        <script type=module blocking=render blow-dry=remove >
-            import {html} from 'lit-html';
-            (await import('be-alit/🎇.js'))
-            .w('[🎇-with="~medicalPrescriptions"]')
-            .p(vm => html`${vm.map(prescription => html`
-                <tr itemscope=treatment-order .ish=${prescription}>
-                    <td>${prescription.OrderText}</td>
-                    <td>
-                        <button disabled 🕹️=orderItem>Order Item</button>
-                        <div>${prescription.Prescriber}</div>
-                    </td>
-                    <td>${prescription.Dosage}</td>
-                    <td>${prescription.Freq}</td>
-                </tr>
-            `)}`);
-        </script>
-            <medical-prescriptions 
+            <medical-prescriptions onerror="console.log(href)"
                 href="prescriptions.json" 
                 enh-be-kvetching>
             </medical-prescriptions>
@@ -51,20 +19,20 @@
                     <th>Dosage</th>
                     <th>Frequency</th>
                 </thead>
-                <tbody 🎇-with='~medicalPrescriptions' onload="
-                    html`${vm.map(prescription => html`
-                        <tr itemscope=💰 .💰=${prescription} 💰-🕹️=#my-fns>
-                            <td>${prescription.OrderText}</td>
-                            <td>
-                                <button disabled 🕹️=orderItem>Order Item</button>
-                                <div>${prescription.Prescriber}</div>
-                            </td>
-                            <td>${prescription.Dosage}</td>
-                            <td>${prescription.Freq}</td>
-                        </tr>
-                    `)}
-                    `
-                ">
+                <tbody>
+                    <script 🎇-with='~medicalPrescriptions::fetch-complete'>
+                        document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
+                                <tr itemscope=treatment-order .ish=${prescription}>
+                                    <td>${prescription.OrderText}</td>
+                                    <td>
+                                        <button disabled 🕹️=orderItem>Order Item</button>
+                                        <div>${prescription.Prescriber}</div>
+                                    </td>
+                                    <td>${prescription.Dosage}</td>
+                                    <td>${prescription.Freq}</td>
+                                </tr>
+                            `)}`
+                    </script>
                 </tbody>
             </table>
 
@@ -73,7 +41,8 @@
     </patient-chart>
     
     <script type=module>
-        import 'be-kvetching/behivior.js';
+        import 'be-kvetching/emc.js';
+        import '/🎇.js';
     </script>
 </body>
 </html>
