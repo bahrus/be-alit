@@ -137,7 +137,7 @@ To bind to the patient-chart web component host:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='prescriptionRenders from /prescriptions'>
+            <tbody 🎇-with='/prescriptions'>
             </tbody>
         </table>
         <be-hive></be-hive>
