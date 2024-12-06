@@ -15,14 +15,15 @@
   "module": "be-alit.js",
   "exports":{
     ".": "./be-alit.js",
-    "./behivior": "./behivior.js",
-    "./be-alit.js": "./be-alit.js"
+    "./emc.js": "./emc.js",
+    "./be-alit.js": "./be-alit.js",
+    "./🎇.js": "./🎇.js"
   },
   "files": [
     "*.js",
-    "types.d.ts"
+    "./ts-refs/*"
   ],
-  "types": "types.d.ts",
+  "types": "./ts-refs/be-alit/types.d.ts",
   "scripts": {
     "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
     "test": "playwright test",
@@ -30,11 +31,8 @@
     "update": "ncu -u && npm install"
   },
   "dependencies": {
-    "be-enhanced": "0.0.156",
-    "be-hive": "0.0.236",
     "lit-html": "3.2.1",
-    "mount-observer": "0.0.39",
-    "trans-render": "0.0.864"
+    "be-render-neutral": "0.0.1"
   },
   "devDependencies": {
     "@playwright/test": "1.49.0",
