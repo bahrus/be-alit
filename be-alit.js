@@ -1,8 +1,5 @@
 // @ts-check
-import { BE } from 'be-enhanced/BE.js';
-import { propInfo, resolved, rejected } from 'be-enhanced/cc.js';
 import {render, html} from 'lit-html';
-import {dispatchEvent as de} from 'trans-render/positractions/dispatchEvent.js';
 import {BeRenderNeutral} from 'be-render-neutral/be-render-neutral.js';
 
 /** @import {BEConfig, IEnhancement, BEAllProps} from './ts-refs/be-enhanced/types.d.ts' */
