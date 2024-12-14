@@ -1,4 +1,4 @@
-# be-alit (🎇) [TODO]
+# be-alit (🎇)
 
 Use the power of lit-html from HTML Markup, without imposing any security constraints.
 
@@ -135,7 +135,8 @@ To bind to the patient-chart web component host:
                 <th>Dosage</th>
                 <th>Frequency</th>
             </thead>
-            <tbody 🎇-with='/prescriptions'>
+            <tbody>
+                <script nomodule  🎇-with='/prescriptions'>...</script>
             </tbody>
         </table>
         <be-hive></be-hive>
