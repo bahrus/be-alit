@@ -11,8 +11,8 @@
 </head>
 <body>
     <ul>
-        <script id=pronouns be-alit-vm='["He", "She", "They", "Other"]'>
-            document.currentScript.renderer = (vm, html) => html `${vm.map(i => html`<li>${i}</li>`)}`;
+        <script nomodule id=pronouns be-alit-vm='["He", "She", "They", "Other"]'>
+            html `${vm.map(i => html`<li>${i}</li>`)}`;
         </script>
     </ul>
 

@@ -20,8 +20,8 @@
                     <th>Frequency</th>
                 </thead>
                 <tbody>
-                    <script 🎇-with='~medicalPrescriptions::fetch-complete'>
-                        document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
+                    <script nomodule 🎇-with='~medicalPrescriptions::fetch-complete'>
+                        html`${vm.map(prescription => html`
                                 <tr itemscope=treatment-order .ish=${prescription}>
                                     <td>${prescription.OrderText}</td>
                                     <td>
