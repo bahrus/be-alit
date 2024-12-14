@@ -2,18 +2,38 @@
 <html>
 <head>
     <title>Minimal CSP Example</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self'; script-src 'sha256-M3+WsGaapB2xIRDxGoERbb4Yxbki1zY1qhapQSYBte0=';">
+    <meta http-equiv="Content-Security-Policy" 
+    content="
+        default-src 'self'; style-src 'self'; img-src 'self'; 
+        script-src 
+            'sha256-NdPEJFVQRHzDnDETRYKcvXUeTTDl5bEC5BpjzeA22yE=' 
+            'sha256-i6TvqP2TVtG9MVoQx7msqKMo9N5gKfwHr7cZVV6d4xg='
+            'sha256-kYCKyd++EI0QB9YUHtFWecp5JC9aEMAJXKYs627N97A='
+            'sha256-WKHAJV10n+uRXN4tBgzWP2+xzIHx17UDLYsfih7sDCI='
+            'sha256-NwD1Uj3szNXySAwCTzxmKecgUosm4JX/FH81ae1I92o='
+            'sha256-/0HNY8ZMkctGwbm9m0+ixgmu4QFFJXOLg92huDNwWks='
+        ;
+    ">
 </head>
 <body>
-    <div>
+    <script>
+        console.log('hello');
+    </script>
+    <div id=div>
         <template shadowrootmode=open>
-     <script>
-        document.currentScript.onerror = event => {
-            console.log({event});
-        }
-        document.currentScript.dispatchEvent(new Event('error'))
-     </script>
-    </template>
+            <script>
+                console.log('goodbye');
+            </script>
+        </template>
     </div>
+    <script>
+        console.log('trying');
+        const script = document.createElement('script');
+        script.innerHTML = `
+            document.currentScript.hello = 'goodbye';
+        `
+        document.head.appendChild(script);
+    </script>
+
 </body>
 </html>
