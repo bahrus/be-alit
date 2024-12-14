@@ -1,4 +1,4 @@
-# be-alit (🎇)
+# be-alit (🎇) [TODO]
 
 Use the power of lit-html from HTML Markup, without imposing any security constraints.
 
@@ -9,8 +9,8 @@ Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
 
 ```html
 <ul>
-    <script id=pronouns be-alit-vm='["He", "She", "They", "Other"]'>
-        document.currentScript.renderer = (vm, html) => html `${vm.map(i => html`<li>${i}</li>`)}`;
+    <script nomodule id=pronouns be-alit-vm='["He", "She", "They", "Other"]'>
+        html `${vm.map(i => html`<li>${i}</li>`)}`;
     </script>
 </ul>
 
@@ -54,10 +54,11 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
                 <th>Frequency</th>
             </thead>
             <tbody>
-                <script 
+                <script
+                    nomodule 
                     be-alit-with='~medicalPrescriptions::load' 
                     blow-dry-preserve=renderer blow-dry-remove=siblings>
-                    document.currentScript.renderer = (vm, html) => html`${vm.map(prescription => html`
+                    html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
                             <td>
@@ -99,9 +100,7 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
                 <th>Frequency</th>
             </thead>
             <tbody >
-                <script 🎇-with='~medicalPrescriptions' blow-dry-preserve="renderer">
-                    document.currentScript.renderer = (vm, html) => html`
-                    <?blowDryRemove start?>
+                <script nomodule 🎇-with='~medicalPrescriptions'>
                     ${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
                             <td>${prescription.OrderText}</td>
@@ -113,7 +112,6 @@ be-alit is the canonical name of this enhancement.  But it is easy as pie to def
                             <td>${prescription.Freq}</td>
                         </tr>
                     `)}
-                    <?blowDryRemove end?>
                     `;
                 </script>
             </tbody>
