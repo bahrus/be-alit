@@ -5,13 +5,15 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self'; script-src 'sha256-M3+WsGaapB2xIRDxGoERbb4Yxbki1zY1qhapQSYBte0=';">
 </head>
 <body>
-    <!-- Your content goes here -->
+    <div>
+        <template shadowrootmode=open>
      <script>
         document.currentScript.onerror = event => {
             console.log({event});
         }
         document.currentScript.dispatchEvent(new Event('error'))
      </script>
-     
+    </template>
+    </div>
 </body>
 </html>
