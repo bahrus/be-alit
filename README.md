@@ -1,8 +1,13 @@
 # be-alit (🎇)
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/be-alit)
+[![NPM version](https://badge.fury.io/js/be-alit.png)](http://badge.fury.io/js/be-alit)
+
 Use the power of lit-html from HTML Markup, without imposing any security constraints.
 
 Attribute equivalent of [litter-g](https://github.com/bahrus/litter-g).
+
+*be-alit* is a custom element enhancement that provides rendering capabilities based on lit-html.  It is one of a family of renderers, based on the common enhancement base class [be-render-neutral](https://github.com/bahrus/be-render-neutral).  Other members include [be-preactive](https://github.com/bahrus/be-preactive).
 
 
 ## Example 1a - Simple list
