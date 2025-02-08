@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 1a</title>
+    <!-- #include virtual="/imports.html" -->
+    <script type=module>
+        import "/emc.js";
+    </script>
+</head>
+<body>
+    <ul>
+        <script nomodule id=pronouns be-alit-vm='["He", "She", "They", "Other"]'>
+            html `${vm.map(i => html`<li>${i}</li>`)}`;
+        </script>
+    </ul>
+    <div id='target'></div>
+    <script>
+        setTimeout(() => {
+            pronouns.beEnhanced['beAlit'].vm = ["I", "You", "Us", "Them"];
+            setTimeout(() => {
+                if(Array.from(document.querySelectorAll('li')).at(-1).textContent === 'Them') {
+                    target.setAttribute('mark', 'good');
+                } 
+            }, 1000);
+        }, 1000);
+    </script>
+</body>
+</html>

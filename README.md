@@ -2,6 +2,7 @@
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/be-alit)
 [![NPM version](https://badge.fury.io/js/be-alit.png)](http://badge.fury.io/js/be-alit)
+[![Playwright Tests](https://github.com/bahrus/be-alit/actions/workflows/CI.yml/badge.svg?branch=baseline)](https://github.com/bahrus/be-alit/actions/workflows/CI.yml)
 
 Use the power of lit-html from HTML Markup, without imposing any security constraints.
 
