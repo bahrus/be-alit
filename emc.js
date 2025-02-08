@@ -10,6 +10,7 @@ import { emc as baseEMC } from 'be-render-neutral/emc.js';
  */
 export const emc = {
     ...baseEMC,
+    hostMatches: '[nomodule]',
     base: 'be-alit',
     enhPropKey: 'beAlit',
     importEnh: async () => {
