@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "lit-html": "3.2.1",
-    "be-render-neutral": "0.0.6"
+    "be-render-neutral": "0.0.7"
   },
   "devDependencies": {
     "@playwright/test": "1.50.1",
