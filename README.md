@@ -48,7 +48,7 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
 ```html
 <patient-chart>
     <template shadowrootmode=open>
-        <medical-prescriptions 
+        <medical-prescriptions id=meds
             href="prescriptions.json?patient=zero" 
             enh-be-kvetching>
         </medical-prescriptions>
@@ -62,7 +62,7 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
             <tbody>
                 <script
                     nomodule 
-                    be-alit-with='~medicalPrescriptions::load' 
+                    be-alit-with='#meds::load' 
                     blow-dry-preserve=renderer blow-dry-remove=siblings>
                     html`${vm.map(prescription => html`
                         <tr itemscope=treatment-order .ish=${prescription}>
@@ -78,7 +78,7 @@ As suggested above, it is seemingly beyond most frameworks's ability to pass val
                 </script>
             </tbody>
         </table>
-        <be-hive></be-hive>
+        <be-hive -id></be-hive>
     </template>
 </patient-chart>
 ```
