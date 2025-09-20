@@ -2,7 +2,7 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 const config: PlaywrightTestConfig = {
   webServer: {
-    command: 'node ./node_modules/spa-ssi/serve.js',
+    command: 'npm run serve',
     url: 'http://localhost:8000/',
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
