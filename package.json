@@ -32,12 +32,13 @@
   },
   "dependencies": {
     "lit-html": "3.3.1",
-    "be-render-neutral": "0.0.8"
+    "be-render-neutral": "0.0.8",
+    "mount-observer":"0.0.102"
   },
   "devDependencies": {
     "@playwright/test": "1.55.0",
     "be-kvetching": "0.0.5",
-    "spa-ssi": "0.0.10"
+    "spa-ssi": "0.0.12"
   },
   "repository": {
     "type": "git",
