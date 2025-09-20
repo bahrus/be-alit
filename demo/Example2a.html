@@ -8,7 +8,7 @@
 </head>
 <body>
     <patient-chart>
-            <medical-prescriptions onerror="console.log(href)"
+            <medical-prescriptions id=meds onerror="console.log(href)"
                 href="prescriptions.json" 
                 enh-be-kvetching>
             </medical-prescriptions>
@@ -20,7 +20,7 @@
                     <th>Frequency</th>
                 </thead>
                 <tbody>
-                    <script nomodule 🎇-with='~medicalPrescriptions::fetch-complete'>
+                    <script nomodule 🎇-with='#meds::fetch-complete'>
                         html`${vm.map(prescription => html`
                                 <tr itemscope=treatment-order .ish=${prescription}>
                                     <td>${prescription.OrderText}</td>
