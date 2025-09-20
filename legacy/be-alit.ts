@@ -18,10 +18,10 @@ class BeAlit extends BE<AP, Actions> implements Actions{
             renderer: {},
         },
         compacts:{
-            when_eval_changes_invoke_getAttrExpr: 0,
-            when_attrExpr_changes_invoke_onAttrExpr: 0,
-            when_scriptEl_changes_invoke_importSymbols: 0,
-            when_scriptRef_changes_invoke_onScriptRef: 0,
+            when_eval_changes_call_getAttrExpr: 0,
+            when_attrExpr_changes_call_onAttrExpr: 0,
+            when_scriptEl_changes_call_importSymbols: 0,
+            when_scriptRef_changes_call_onScriptRef: 0,
         },
         actions: {
             doRender: {
